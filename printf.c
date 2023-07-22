@@ -23,35 +23,7 @@ int string_printer(char *str)
 	return bytes_counted;
 }
 
-void formatSpecifierHandler(char c, int *bytes, va_list arguments)
-{
-	switch (c)
-	{
-	case 'c':
-		*bytes += char_printer(va_arg(arguments, int));
-		break;
-	case 's':
-		*bytes += string_printer(va_arg(arguments, char *));
-		break;
-	case '%':
-		*bytes += 1;
-		_putchar('%');
-		break;
-	case 'i':
-		bytes += print_number(va_arg(arguments, int));
-		break;
-	case 'd':
-		bytes += print_number(va_arg(arguments, int));
-		break;
 
-	default:
-		/* Handle unexpected specifier*/
-		_putchar('%');
-		_putchar(c);
-		*bytes += 2;
-		break;
-	}
-}
 void formatSpecifierHandler(char c, int *bytes, va_list arguments)
 {
 	switch (c)
@@ -82,4 +54,44 @@ void formatSpecifierHandler(char c, int *bytes, va_list arguments)
 		*bytes += 2;
 		break;
 	}
+}
+
+int _printf(const char *format, ...)
+{
+	unsigned int num_args = _strlen(format), i;
+	va_list args;
+	int bytes = 0;
+
+	va_start(args, format);
+	if (format == NULL)
+	{
+		return -1;
+	}
+
+	for (i = 0; i < num_args; i++)
+	{
+		if (format[i] == '%')
+		{
+			i++;
+			if (i < num_args) /*prevent accessing memory out of bounds*/
+			{
+				char c = format[i];
+
+				formatSpecifierHandler(c, &bytes, args);
+			}
+			else
+			{
+				_putchar('%'); /*Handle case where format string ends in '%'*/
+				bytes++;
+			}
+		}
+		else
+		{
+			_putchar(format[i]);
+			bytes += 1;
+		}
+	}
+
+	va_end(args);
+	return bytes;
 }
