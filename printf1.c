@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stddef.h>
 int _printf(const char *format, ...);
 int string_printer(char *str);
 void formatSpecifierHandler(char c, int *bytes, va_list arguments);
@@ -10,6 +9,7 @@ int char_printer(char c)
 	_putchar(c);
 	return 1;
 }
+
 /**
  * @string_printer -  prints a string and count the printed byets
  * @str: char* the string pointer to print
@@ -17,7 +17,7 @@ int char_printer(char c)
  */
 int string_printer(char *str)
 {
-	size_t strLen = _strlen(str), bytes_counted = 0, j;
+	unsigned int strLen = _strlen(str), bytes_counted = 0, j;
 
 	for (j = 0; j < strLen; j++)
 	{
@@ -26,14 +26,13 @@ int string_printer(char *str)
 	}
 	return bytes_counted;
 }
-
 /**
  *  formatSpecifierHandler -lock for type specifier and call corresponding function
- * 
- * @c: char , format specifier 
+ *
+ * @c: char , format specifier
 
  * @ bytes
- * @param arguments 
+ * @param arguments
  */
 void formatSpecifierHandler(char c, int *bytes, va_list arguments)
 {
@@ -43,7 +42,16 @@ void formatSpecifierHandler(char c, int *bytes, va_list arguments)
 		*bytes += char_printer(va_arg(arguments, int));
 		break;
 	case 's':
-		*bytes += string_printer(va_arg(arguments, char *));
+	{
+
+		char *str = va_arg(arguments, char *);
+		*bytes += (str == NULL) ? string_printer("(null)") : string_printer(str);
+	}
+	break;
+
+	case '%':
+		*bytes += 1;
+		_putchar('%');
 		break;
 	case 'i':
 		bytes += print_number(va_arg(arguments, int));
@@ -53,7 +61,6 @@ void formatSpecifierHandler(char c, int *bytes, va_list arguments)
 		break;
 
 	default:
-		/* Handle unexpected specifier*/
 		_putchar('%');
 		_putchar(c);
 		*bytes += 2;
@@ -62,7 +69,7 @@ void formatSpecifierHandler(char c, int *bytes, va_list arguments)
 }
 /**
  * _printf - generic function print argumnt pass to it as a buffer
- * 
+ *
  * @format: format fore type specifiers for arguments to pe printed
  * @...: arguments to print
  * @return (int) number of printed buffer 
@@ -70,11 +77,16 @@ void formatSpecifierHandler(char c, int *bytes, va_list arguments)
 
 int _printf(const char *format, ...)
 {
-	size_t num_args = _strlen(format), i;
+	unsigned int num_args, i;
 	va_list args;
 	int bytes = 0;
 
 	va_start(args, format);
+	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+	{
+		return -1;
+	}
+	num_args = _strlen(format);
 
 	for (i = 0; i < num_args; i++)
 	{
@@ -103,3 +115,4 @@ int _printf(const char *format, ...)
 	va_end(args);
 	return bytes;
 }
+
