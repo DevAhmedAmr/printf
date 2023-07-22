@@ -14,10 +14,6 @@ int char_printer(char c)
 int string_printer(char *str)
 {
 	unsigned int strLen = _strlen(str), bytes_counted = 0, j;
-	if (str == NULL)
-	{
-		str = "(null)";
-	}
 
 	for (j = 0; j < strLen; j++)
 	{
@@ -35,12 +31,8 @@ void formatSpecifierHandler(char c, int *bytes, va_list arguments)
 		*bytes += char_printer(va_arg(arguments, int));
 		break;
 	case 's':
-	{
-		char *str = va_arg(arguments, char *);
-		*bytes += (str == NULL) ? string_printer("(null)") : string_printer(str);
+		*bytes += string_printer(va_arg(arguments, char *));
 		break;
-	}
-
 	case '%':
 		*bytes += 1;
 		_putchar('%');
@@ -53,8 +45,8 @@ void formatSpecifierHandler(char c, int *bytes, va_list arguments)
 		break;
 
 	default:
-		/* Handle unexpected specifierZ
-		/*_putchar('%');*/
+		/* Handle unexpected specifier*/
+		_putchar('%');
 		_putchar(c);
 		*bytes += 2;
 		break;
