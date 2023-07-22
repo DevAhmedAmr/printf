@@ -1,6 +1,1 @@
-
-
-
-a
-:q
-
+Customized _printf 
