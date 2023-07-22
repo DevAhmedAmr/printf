@@ -56,9 +56,10 @@ void formatSpecifierHandler(char c, int *bytes, va_list arguments)
 	}
 }
 
+
 int _printf(const char *format, ...)
 {
-	unsigned int num_args = _strlen(format), i;
+	unsigned int num_args, i;
 	va_list args;
 	int bytes = 0;
 
@@ -67,6 +68,7 @@ int _printf(const char *format, ...)
 	{
 		return -1;
 	}
+	num_args = _strlen(format);
 
 	for (i = 0; i < num_args; i++)
 	{
