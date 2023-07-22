@@ -1,6 +1,3 @@
-Okay, here is the code in one block:
-
-```c
 #include "main.h"
 #include <stddef.h>
 int _printf(const char *format, ...);
@@ -106,4 +103,3 @@ int _printf(const char *format, ...)
 	va_end(args);
 	return bytes;
 }
-
