@@ -23,7 +23,6 @@ int string_printer(char *str)
 	return bytes_counted;
 }
 
-
 void formatSpecifierHandler(char c, int *bytes, va_list arguments)
 {
 	switch (c)
@@ -32,12 +31,8 @@ void formatSpecifierHandler(char c, int *bytes, va_list arguments)
 		*bytes += char_printer(va_arg(arguments, int));
 		break;
 	case 's':
-	{
-		char *str = va_arg(arguments, char *);
-		*bytes += (str == NULL) ? string_printer("(null)") : string_printer(str);
+		*bytes += string_printer(va_arg(arguments, char *));
 		break;
-	}
-
 	case '%':
 		*bytes += 1;
 		_putchar('%');
@@ -50,25 +45,21 @@ void formatSpecifierHandler(char c, int *bytes, va_list arguments)
 		break;
 
 	default:
+		/* Handle unexpected specifier*/
+		_putchar('%');
 		_putchar(c);
 		*bytes += 2;
 		break;
 	}
 }
 
-
 int _printf(const char *format, ...)
 {
-	unsigned int num_args, i;
+	unsigned int num_args = _strlen(format), i;
 	va_list args;
 	int bytes = 0;
 
 	va_start(args, format);
-	if (format == NULL)
-	{
-		return -1;
-	}
-	num_args = _strlen(format);
 
 	for (i = 0; i < num_args; i++)
 	{
