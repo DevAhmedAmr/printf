@@ -7,8 +7,9 @@
  *
  * Return: number
  */
-int print_number(int n)
+int print_number(va_list number)
 {
+	int n = va_arg(number, int);
 	static int bytes = 0;
 	unsigned long int num = n;
 
@@ -21,13 +22,10 @@ int print_number(int n)
 	}
 
 	if ((num / 10) > 0)
-		print_number(num / 10);
-	
+		print_number(number);
 
 	_putchar((num % 10) + 48);
-
-	 bytes++;
-
+	bytes++;
 	return bytes;
 }
 
