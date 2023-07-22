@@ -7,19 +7,27 @@
  *
  * Return: number
  */
-
 int print_number(int n)
 {
-	unsigned int num = n;
+	static int bytes = 0;
+	unsigned long int num = n;
 
 	if (n < 0)
 	{
-		putchar('-');
-		num = -num;
+		_putchar('-');
+		n *= -1;
+		num = n;
+		bytes++;
 	}
 
 	if ((num / 10) > 0)
 		print_number(num / 10);
+	
 
-	putchar((num % 10) + 48);
+	_putchar((num % 10) + 48);
+
+	 bytes++;
+
+	return bytes;
 }
+
