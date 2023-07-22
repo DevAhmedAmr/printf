@@ -1,4 +1,8 @@
+Okay, here is the code in one block:
+
+```c
 #include "main.h"
+#include <stddef.h>
 int _printf(const char *format, ...);
 int string_printer(char *str);
 void formatSpecifierHandler(char c, int *bytes, va_list arguments);
@@ -9,10 +13,14 @@ int char_printer(char c)
 	_putchar(c);
 	return 1;
 }
-
+/**
+ * @string_printer -  prints a string and count the printed byets
+ * @str: char* the string pointer to print
+ * Return: int counted byets umber
+ */
 int string_printer(char *str)
 {
-	unsigned int strLen = _strlen(str), bytes_counted = 0, j;
+	size_t strLen = _strlen(str), bytes_counted = 0, j;
 
 	for (j = 0; j < strLen; j++)
 	{
@@ -22,6 +30,14 @@ int string_printer(char *str)
 	return bytes_counted;
 }
 
+/**
+ *  formatSpecifierHandler -lock for type specifier and call corresponding function
+ * 
+ * @c: char , format specifier 
+
+ * @ bytes
+ * @param arguments 
+ */
 void formatSpecifierHandler(char c, int *bytes, va_list arguments)
 {
 	switch (c)
@@ -31,10 +47,6 @@ void formatSpecifierHandler(char c, int *bytes, va_list arguments)
 		break;
 	case 's':
 		*bytes += string_printer(va_arg(arguments, char *));
-		break;
-	case '%':
-		*bytes += 1;
-		_putchar('%');
 		break;
 	case 'i':
 		bytes += print_number(va_arg(arguments, int));
@@ -51,10 +63,17 @@ void formatSpecifierHandler(char c, int *bytes, va_list arguments)
 		break;
 	}
 }
+/**
+ * _printf - generic function print argumnt pass to it as a buffer
+ * 
+ * @format: format fore type specifiers for arguments to pe printed
+ * @...: arguments to print
+ * @return (int) number of printed buffer 
+ */
 
 int _printf(const char *format, ...)
 {
-	unsigned int num_args = _strlen(format), i;
+	size_t num_args = _strlen(format), i;
 	va_list args;
 	int bytes = 0;
 
@@ -87,3 +106,4 @@ int _printf(const char *format, ...)
 	va_end(args);
 	return bytes;
 }
+
