@@ -29,37 +29,35 @@ void splitNum(int num,int *byets)
  *
  * Return: number
  */
+
 int print_number(va_list arg)
 {
-	int bytes, n;
+    int bytes = 0, n;
 
+    n = va_arg(arg, int);
 
-	n =	va_arg(arg, int);
-	bytes = 0;
-if (n >= 0 && n <= 9)
-	{
-		_putchar( n + '0');
-	}
-
-else if (n < 0 && n > -9)
-	{
-		_putchar('-');
-		_putchar(n + '0');
-		bytes+=2;
-	}
-
-	if (n > 9)
-		splitNum(n, &bytes);
-
-if (n <  -9)
-	{
-		int nn;
-
-		_putchar('-');
-		bytes++;
-		nn = n * -1;
-		splitNum(nn, &bytes);
-	}
-	return (bytes);
+    if (n >= 0 && n <= 9)
+    {
+        _putchar(n + '0');
+        bytes++;
+    }
+    else if (n < 0 && n >= -9)
+    {
+        _putchar('-');
+        _putchar((-n) + '0');
+        bytes += 2;
+    }
+    else if (n > 9)
+    {
+        splitNum(n, &bytes);
+    }
+    else if (n < -9)
+    {
+        int nn;
+        _putchar('-');
+        bytes++;
+        nn = n * -1;
+        splitNum(nn, &bytes);
+    }
+    return (bytes);
 }
-
