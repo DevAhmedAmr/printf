@@ -26,7 +26,6 @@ void num_print_helper(int n, int *bytes)
 	while (divisor)
 	{
 		int x = (n / divisor);
-		/*n %= divisor;*/
 
 		*bytes += 1;
 		_putchar((x % 10) + '0');
@@ -65,12 +64,6 @@ int print_number(va_list arg)
 	}
 	else
 		num_print_helper(n, &bytes);
-
-	/*else if (n > 0)*/
-		/*num_print_helper(n, &bytes);*/
-
-	/*else*/
-		/*return 0;*/
 
 	return bytes;
 }
