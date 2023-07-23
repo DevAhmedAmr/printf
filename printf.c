@@ -8,7 +8,7 @@ int char_printer(va_list c)
 {
 	int character = va_arg(c, int);
 	_putchar(character);
-	return 1;
+	return (1);
 }
 /**
  * string_printer - sub function from _printf that print string
@@ -31,7 +31,7 @@ int string_printer(va_list string)
 		_putchar(str[j]);
 		bytes_counted++;
 	}
-	return bytes_counted;
+	return (bytes_counted);
 }
 
 /**
@@ -86,7 +86,7 @@ int _printf(const char *format, ...)
 	va_start(args, format);
 
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
-		return -1;
+		return (-1);
 
 	num_args = _strlen(format);
 
@@ -110,6 +110,6 @@ int _printf(const char *format, ...)
 	}
 
 	va_end(args);
-	return bytes;
+	return (bytes);
 }
 
