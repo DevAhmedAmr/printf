@@ -4,7 +4,7 @@ void num_print_helper(int n, int *bytes)
 	int numLen, divisor;
 	if (n == -2147483648)
 	{
-		bytes += write(1, "-2147483648", 11);
+		*bytes += _putchar('-');
 		return;
 	}
 
