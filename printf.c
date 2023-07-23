@@ -1,12 +1,21 @@
 #include "main.h"
-
+/**
+ * char_printer - sub function from _printf that print charcters
+ * @c:argument for charcter
+ * Return: (int) number of charcter printed by char_printer
+ */
 int char_printer(va_list c)
 {
 	int character = va_arg(c, int);
-	_putchar(character);
-	return 1;
-}
 
+	_putchar(character);
+	return (1);
+}
+/**
+ * string_printer - sub function from _printf that print string
+ * @c:argument for string
+ * Return: (int) number of each charcter of string printed by char_printer
+ */
 int string_printer(va_list string)
 {
 	char *str = va_arg(string, char *);
@@ -23,14 +32,21 @@ int string_printer(va_list string)
 		_putchar(str[j]);
 		bytes_counted++;
 	}
-	return bytes_counted;
+	return (bytes_counted);
 }
-
+/**
+ * formatSpecifierHandler - sup function from _printf that handle spwcifier
+ *lock for a type specifier charcter and call the crosponding function
+ * @specifier:argument for specifier
+ * @bytes:number of charcters printrd by  formatSpecifierHandler.
+ * @arguments: whic is the argument passed after specifier
+ */
 void formatSpecifierHandler(char specifier, int *bytes, va_list arguments)
 {
 	int i;
 	/*flag to identify if the specifier is found or not */
 	int identified_specifier = 0;
+
 	struct specifier_formater struct_specifiers[] = {
 		{'c', char_printer},
 		{'s', string_printer},
@@ -57,6 +73,12 @@ void formatSpecifierHandler(char specifier, int *bytes, va_list arguments)
 		*bytes += 2;
 	}
 }
+/**
+ * _printf - our super great printf
+ * @format: format no need to explain  more bro
+ * @...: argument to pe print
+ * Return: number of bytes printed by our great function
+ */
 int _printf(const char *format, ...)
 {
 	unsigned int num_args, i;
@@ -64,10 +86,8 @@ int _printf(const char *format, ...)
 	int bytes = 0;
 
 	va_start(args, format);
-
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
-		return -1;
-
+		return (-1);
 	num_args = _strlen(format);
 
 	for (i = 0; i < num_args; i++)
@@ -77,8 +97,7 @@ int _printf(const char *format, ...)
 			i++;
 			if (i < num_args) /*prevent accessing memory out of bounds*/
 			{
-				char specifier = format[i];
-
+			char specifier = format[i];
 				formatSpecifierHandler(specifier, &bytes, args);
 			}
 		}
@@ -88,8 +107,7 @@ int _printf(const char *format, ...)
 			bytes += 1;
 		}
 	}
-
 	va_end(args);
-	return bytes;
+	return (bytes);
 }
 
