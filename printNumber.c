@@ -3,7 +3,6 @@ void splitNum(long int n, int *bytes)
 {
 	if (n == -2147483648)
 	{
-		_putchar('-');
 		_putchar('2');
 		_putchar('1');
 		_putchar('4');
