@@ -1,97 +1,115 @@
 #include "main.h"
-
+/**
+ * char_printer - sub function from _printf that print charcters
+ * @c:argument for charcter
+ * Return: (int) number of charcter printed by char_printer
+ */
 int char_printer(va_list c)
 {
-	int character = va_arg(c, int);
-	_putchar(character);
-	return 1;
+        int character = va_arg(c, int);
+        _putchar(character);
+        return 1;
 }
-
+/**
+ * string_printer - sub function from _printf that print string
+ * @c:argument for string
+ * Return: (int) number of each charcter of string printed by char_printer
+ */
 int string_printer(va_list string)
 {
-	char *str = va_arg(string, char *);
+        char *str = va_arg(string, char *);
 
-	unsigned int strLen, bytes_counted = 0, j;
+        unsigned int strLen, bytes_counted = 0, j;
 
-	if (str == NULL)
-		str = "(null)";
+        if (str == NULL)
+                str = "(null)";
 
-	strLen = _strlen(str);
+        strLen = _strlen(str);
 
-	for (j = 0; j < strLen; j++)
-	{
-		_putchar(str[j]);
-		bytes_counted++;
-	}
-	return bytes_counted;
+        for (j = 0; j < strLen; j++)
+        {
+                _putchar(str[j]);
+                bytes_counted++;
+        }
+        return bytes_counted;
 }
 
+/**
+ * formatSpecifierHandler - sup function from _printf that handle spwcifier
+ * it lock for a type specifier charcter and call the crosponding function
+*if specifier dose not meat any type specifier in  struct it just peint it.
+*lso if there are a string in specifier argument print it.
+ * @specifier:argument for specifier
+ * @bytes:number of charcters printrd by  formatSpecifierHandler.
+ * @arguments: whic is the argument passed after specifier argument
+ * which is oloso passed to user function according to type
+ */
 void formatSpecifierHandler(char specifier, int *bytes, va_list arguments)
 {
-	int i;
+        int i;
 
-	/*flag to identify if the specifier is found or not */
-	int identified_specifier = 0;
+        /*flag to identify if the specifier is found or not */
+        int identified_specifier = 0;
 
-	struct specifier_formater struct_specifiers[] = {
-		{'c', char_printer},
-		{'s', string_printer},
-		{'i', print_number},
-		{'d', print_number}};
+        struct specifier_formater struct_specifiers[] = {
+                {'c', char_printer},
+                {'s', string_printer},
+                {'i', print_number},
+                {'d', print_number}};
 
-	for (i = 0; i < 4; i++)
-	{
-		if (struct_specifiers[i].specifier == specifier)
-		{
-			*bytes += struct_specifiers[i].function(arguments);
-			identified_specifier = 1;
-		}
-	}
-	if (specifier == '%' && identified_specifier == 0)
-	{
-		*bytes += 1;
-		_putchar('%');
-	}
-	else if (identified_specifier == 0)
-	{
-		_putchar('%');
-		_putchar(specifier);
-		*bytes += 2;
-	}
+        for (i = 0; i < 4; i++)
+        {
+                if (struct_specifiers[i].specifier == specifier)
+                {
+                        *bytes += struct_specifiers[i].function(arguments);
+                        identified_specifier = 1;
+                }
+        }
+        if (specifier == '%' && identified_specifier == 0)
+        {
+                *bytes += 1;
+                _putchar('%');
+        }
+        else if (identified_specifier == 0)
+        {
+                _putchar('%');
+                _putchar(specifier);
+                *bytes += 2;
+        }
 }
 int _printf(const char *format, ...)
 {
-	unsigned int num_args, i;
-	va_list args;
-	int bytes = 0;
+        unsigned int num_args, i;
+        va_list args;
+        int bytes = 0;
 
-	va_start(args, format);
+        va_start(args, format);
 
-	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
-		return -1;
+        if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+                return -1;
 
-	num_args = _strlen(format);
+        num_args = _strlen(format);
 
-	for (i = 0; i < num_args; i++)
-	{
-		if (format[i] == '%')
-		{
-			i++;
-			if (i < num_args) /*prevent accessing memory out of bounds*/
-			{
-				char specifier = format[i];
+        for (i = 0; i < num_args; i++)
+        {
+                if (format[i] == '%')
+                {
+                        i++;
+                        if (i < num_args) /*prevent accessing memory out of bounds*/
+                        {
+                                char specifier = format[i];
 
-				formatSpecifierHandler(specifier, &bytes, args);
-			}
-		}
-		else
-		{
-			_putchar(format[i]);
-			bytes += 1;
-		}
-	}
+                                formatSpecifierHandler(specifier, &bytes, args);
+                        }
+                }
+                else
+                {
+                        _putchar(format[i]);
+                        bytes += 1;
+                }
+        }
 
-	va_end(args);
-	return bytes;
+        va_end(args);
+        return bytes;
 }
 
