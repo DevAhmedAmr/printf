@@ -1,5 +1,13 @@
 #include "main.h"
 #include"main.h"
+/**
+ * num_print_helper - a helper function to help 'print_number' function
+ * to prints decimals and integers
+ *
+ * @parameters:
+ * @n: number to be printed
+ * @bytes: a parameter that keeps track number of chars or bytes
+ */
 void num_print_helper( int n, int *bytes)
 {
 	int numLen, divisor;
@@ -40,6 +48,7 @@ void num_print_helper( int n, int *bytes)
 int print_number(va_list arg)
 {
 	int bytes;
+
 	long int n;
 
 	n = va_arg(arg, int);
