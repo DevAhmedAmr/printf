@@ -26,7 +26,7 @@ void num_print_helper(int n, int *bytes)
 	while (divisor)
 	{
 		int x = (n / divisor);
-		n %= divisor;
+		/*n %= divisor;*/
 
 		*bytes += 1;
 		_putchar((x % 10) + '0');
