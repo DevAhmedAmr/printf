@@ -29,3 +29,26 @@ int _putchar(char c)
 	write(1, &c, sizeof(c));
 	return (0);
 }
+
+int number_len(long int n)
+{
+	int len = 0;
+	int divisor = 10;
+	while (n)
+	{
+		n = n / divisor;
+		len++;
+	}
+	return len;
+}
+
+unsigned long int _power(int base, int exponent)
+{
+	unsigned long int result = 1;
+	int i ;
+	for (i = 0; i < exponent; i++)
+	{
+		result *= base;
+	}
+	return result;
+}
