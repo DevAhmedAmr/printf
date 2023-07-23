@@ -1,65 +1,46 @@
 #include"main.h"
-void splitNum(long int n, int *bytes)
+void num_print_helper(long int n, int *bytes)
 {
-	if (n == -2147483648)
+	int numLen, divisor;
+	if (n == -2147483648L)
 	{
-		_putchar('2');
-		_putchar('1');
-		_putchar('4');
-		_putchar('7');
-		_putchar('4');
-		_putchar('8');
-		_putchar('3');
-		_putchar('6');
-		_putchar('4');
-		_putchar('8');
-		*bytes += 11;
+		*bytes += write(1, "-2147483648", 11);
 		return;
 	}
 
 	if (n < 0)
 	{
-		_putchar('-');
-		(*bytes)++;
+		*bytes += _putchar('-');
 		n = -n;
 	}
+	numLen = number_len(n);
 
-	if (n / 10)
-		splitNum(n / 10, bytes);
+	divisor = _power(10, numLen - 1);
+	while (divisor)
+	{
+		int x = (int)(n / divisor);
 
-	_putchar(n % 10 + '0');
-	(*bytes)++;
+		*bytes += _putchar((x % 10) + '0');
+		divisor /= 10;
+	}
 }
+
+/**
+ * print_number - function that print number
+ * without using stdio lib
+ *
+ * @n: type int
+ *
+ * Return: number
+ */
 int print_number(va_list arg)
 {
 	int bytes;
 	long int n;
 
-	n = va_arg(arg, long int);
+	n = va_arg(arg, int);
 	bytes = 0;
-	if (n >= 0 && n <= 9)
-	{
-		_putchar(n + '0');
-	}
+	num_print_helper(n, &bytes);
 
-	else if (n < 0 && n > -9)
-	{	
-		_putchar('-');
-		_putchar(n + '0');
-		bytes += 2;
-	}
-
-	if (n > 9)
-		splitNum(n, &bytes);
-
-	if (n < -9)
-	{
-
-		_putchar('-');
-		bytes++;
-
-		splitNum(-(n), &bytes);
-	}
 	return (bytes);
 }
-
