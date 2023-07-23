@@ -1,7 +1,7 @@
 #include "main.h"
- unsigned long int  highest_power(int num)
+  int  highest_power(int num)
 {
-	unsigned long int power = 1;
+	 int power = 1;
 		while (num / (power * 10) > 0)
 				power *= 10;
 	return (power);
@@ -13,7 +13,7 @@ num =??  * 10
 */
 void splitNum(int num,int *byets)
 {
-		unsigned long int power = 0 , digit = 0;
+		 int power = 0 , digit = 0;
 		power = highest_power(num);
 		while (power > 0)
 		{
@@ -40,15 +40,10 @@ int print_number(va_list arg)
 
 	n =	va_arg(arg, int);
 
-
-
-
-
-
 if (n > 0 && n <= 9)
-    {
-        _putchar( n + '0');
-    }
+	{
+		_putchar( n + '0');
+	}
 else if (n < 0 && n > -9)
 	{
 		_putchar('*');
@@ -70,4 +65,3 @@ if (n <  -9)
 	}
 	return (bytes);
 }
-
