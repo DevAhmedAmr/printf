@@ -81,31 +81,31 @@ void formatSpecifierHandler(char specifier, int *bytes, va_list arguments)
  */
 int _printf(const char *format, ...)
 {
-	unsigned int num_args, i;
+	unsigned int i = 0;
 	va_list args;
 	int bytes = 0;
 
 	va_start(args, format);
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
-	num_args = _strlen(format);
 
-	for (i = 0; i < num_args; i++)
+	while (format[i] != '\0')
 	{
+		 char specifier;
+
 		if (format[i] == '%')
 		{
 			i++;
-			if (i < num_args) /*prevent accessing memory out of bounds*/
-			{
-			char specifier = format[i];
-				formatSpecifierHandler(specifier, &bytes, args);
-			}
+			specifier = format[i];
+			formatSpecifierHandler(specifier, &bytes, args);
+			
 		}
 		else
 		{
 			_putchar(format[i]);
 			bytes += 1;
 		}
+		i++;
 	}
 	va_end(args);
 	return (bytes);
