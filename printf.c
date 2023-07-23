@@ -34,7 +34,6 @@ int string_printer(va_list string)
 	}
 	return (bytes_counted);
 }
-
 /**
  * formatSpecifierHandler - sup function from _printf that handle spwcifier
  *lock for a type specifier charcter and call the crosponding function
@@ -85,7 +84,6 @@ int _printf(const char *format, ...)
 	int bytes = 0;
 
 	va_start(args, format);
-
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
 	num_args = _strlen(format);
