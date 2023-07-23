@@ -63,14 +63,14 @@ int print_number(va_list arg)
 		_putchar('8');
 		return 11;
 	}
-	else if (n < 0)
-		num_print_helper(n, &bytes);
-
-	else if (n > 0)
-		num_print_helper(n, &bytes);
-
 	else
-		return 0;
+		num_print_helper(n, &bytes);
+
+	/*else if (n > 0)*/
+		/*num_print_helper(n, &bytes);*/
+
+	/*else*/
+		/*return 0;*/
 
 	return bytes;
 }
