@@ -29,10 +29,8 @@ int string_printer(va_list string)
 void formatSpecifierHandler(char specifier, int *bytes, va_list arguments)
 {
 	int i;
-
 	/*flag to identify if the specifier is found or not */
 	int identified_specifier = 0;
-
 	struct specifier_formater struct_specifiers[] = {
 		{'c', char_printer},
 		{'s', string_printer},
