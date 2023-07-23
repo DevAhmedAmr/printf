@@ -1,10 +1,10 @@
 #include"main.h"
-void num_print_helper(long int n, int *bytes)
+void num_print_helper(int n, int *bytes)
 {
 	int numLen, divisor;
-	if (n == -2147483648L)
+	if (n == -2147483648)
 	{
-		/**bytes += write(1, "-2147483648", 11);*/
+		bytes += write(1, "-2147483648", 11);
 		return;
 	}
 
@@ -36,7 +36,7 @@ void num_print_helper(long int n, int *bytes)
 int print_number(va_list arg)
 {
 	int bytes;
-	long int n;
+	int n;
 
 	n = va_arg(arg, int);
 	bytes = 0;
