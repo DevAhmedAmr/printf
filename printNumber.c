@@ -1,8 +1,8 @@
 #include "main.h"
 #include"main.h"
-unsigned long highest_power(int num)
+/*unsigned long*/int highest_power(int num)
 {
-	unsigned long power = 1;
+	/*unsigned long*/ int power = 1;
 	while (num / (power * 10) > 0)
 		power *= 10;
 	return (power);
@@ -10,7 +10,7 @@ unsigned long highest_power(int num)
 
 void num_print_helper(int n, int *bytes)
 {
-	unsigned long int divisor;
+	/*unsigned long*/ int divisor;
 
 	if (n < 0)
 	{
