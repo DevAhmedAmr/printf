@@ -1,4 +1,30 @@
 #include "main.h"
+ unsigned long int  highest_power(int num)
+{
+	unsigned long int power = 1;
+		while (num / (power * 10) > 0)
+				power *= 10;
+	return (power);
+}
+/*
+5000
+num =??  * 10
+5000/ ?? = 0;
+*/
+void splitNum(int num,int *byets)
+{
+		unsigned long int power = 0 , digit = 0;
+		power = highest_power(num);
+		while (power > 0)
+		{
+		digit = num / power;
+		num %= power;
+		power /= 10;
+		_putchar(digit + 48);
+		*byets += 1;
+
+		}
+}
 /**
  * print_number - function that print number
  * without using stdio lib
@@ -7,25 +33,41 @@
  *
  * Return: number
  */
-int print_number(va_list number)
+int print_number(va_list arg)
 {
-	int n = va_arg(number, int);
-	static int bytes = 0;
-	unsigned long int num = n;
+	int bytes, n;
 
-	if (n < 0)
+
+	n =	va_arg(arg, int);
+
+
+
+
+
+
+if (n > 0 && n <= 9)
+    {
+        _putchar( n + '0');
+    }
+else if (n < 0 && n > -9)
 	{
-		_putchar('-');
-		n *= -1;
-		num = n;
-		bytes++;
+		_putchar('*');
+		_putchar(n + '0');
+		bytes+=2;
 	}
 
-	if ((num / 10) > 0)
-		print_number(number);
+	if (n > 9)
+		splitNum(n, &bytes);
 
-	_putchar((num % 10) + 48);
-	bytes++;
-	return bytes;
+if (n <  -9)
+	{
+		int nn;
+
+		_putchar('-');
+		bytes++;
+		nn = n * -1;
+		splitNum(nn, &bytes);
+	}
+	return (bytes);
 }
 
