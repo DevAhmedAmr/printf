@@ -5,13 +5,15 @@ void num_print_helper( int n, int *bytes)
 	int numLen, divisor;
 	if (n == -2147483648L)
 	{
-		*bytes += write(1, "-2147483648", 11);
+		*bytes +=11;
+		write(1, "-2147483648", 11);
 		return;
 	}
 
 	if (n < 0)
 	{
-		*bytes += _putchar('-');
+		*bytes +=1;
+	       	_putchar('-');
 		n = -n;
 	}
 	numLen = number_len(n);
@@ -21,7 +23,8 @@ void num_print_helper( int n, int *bytes)
 	{
 		int x = (int)(n / divisor);
 
-		*bytes += _putchar((x % 10) + '0');
+		*bytes += 1;
+		_putchar((x % 10) + '0');
 		divisor /= 10;
 	}
 }
