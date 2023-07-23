@@ -36,7 +36,7 @@ int print_number(va_list arg)
         _putchar('0');
         return 1;
     }
-    else if (n == INT_MIN) {
+    else if (n == -2147483648) {
         _putchar('-');
         _putchar('2');
         _putchar('1');
