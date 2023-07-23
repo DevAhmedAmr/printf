@@ -35,14 +35,15 @@ int print_number(va_list arg)
 
 
 	n =	va_arg(arg, int);
-
-if (n > 0 && n <= 9)
+	bytes = 0;
+if (n >= 0 && n <= 9)
 	{
 		_putchar( n + '0');
 	}
+
 else if (n < 0 && n > -9)
 	{
-		_putchar('*');
+		_putchar('-');
 		_putchar(n + '0');
 		bytes+=2;
 	}
