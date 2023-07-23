@@ -88,7 +88,6 @@ int _printf(const char *format, ...)
 
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
-
 	num_args = _strlen(format);
 
 	for (i = 0; i < num_args; i++)
@@ -99,7 +98,6 @@ int _printf(const char *format, ...)
 			if (i < num_args) /*prevent accessing memory out of bounds*/
 			{
 			char specifier = format[i];
-
 				formatSpecifierHandler(specifier, &bytes, args);
 			}
 		}
@@ -109,7 +107,6 @@ int _printf(const char *format, ...)
 			bytes += 1;
 		}
 	}
-
 	va_end(args);
 	return (bytes);
 }
