@@ -42,9 +42,10 @@ int number_len(long int n)
 	return len;
 }
 
-int _power(int base, int exponent)
+unsigned long int _power(int base, int exponent)
 {
-	int result = 1, i;
+	unsigned long int result = 1;
+	int i ;
 	for (i = 0; i < exponent; i++)
 	{
 		result *= base;

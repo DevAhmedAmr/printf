@@ -1,69 +1,47 @@
 #include "main.h"
 #include"main.h"
-/*unsigned long*/int highest_power(int num)
+void num_print_helper( int n, int *bytes)
 {
-	/*unsigned long*/ int power = 1;
-	while (num / (power * 10) > 0)
-		power *= 10;
-	return (power);
-}
-
-void num_print_helper(int n, int *bytes)
-{
-	/*unsigned long*/ int divisor;
+	int numLen, divisor;
+	if (n == -2147483648L)
+	{
+		*bytes += write(1, "-2147483648", 11);
+		return;
+	}
 
 	if (n < 0)
 	{
-		*bytes += 1;
-
-		_putchar('-');
-
+		*bytes += _putchar('-');
 		n = -n;
 	}
+	numLen = number_len(n);
 
-	divisor = highest_power(n);
-
+	divisor = _power(10, numLen - 1);
 	while (divisor)
 	{
-		int x = (n / divisor);
+		int x = (int)(n / divisor);
 
-		*bytes += 1;
-		_putchar((x % 10) + '0');
+		*bytes += _putchar((x % 10) + '0');
 		divisor /= 10;
 	}
 }
 
+/**
+ * print_number - function that print number
+ * without using stdio lib
+ *
+ * @n: type int
+ *
+ * Return: number
+ */
 int print_number(va_list arg)
 {
 	int bytes;
-	int n;
+	long int n;
 
 	n = va_arg(arg, int);
-
 	bytes = 0;
+	num_print_helper(n, &bytes);
 
-	if (n == 0)
-	{
-		_putchar('0');
-		return 1;
-	}
-	else if (n == -2147483648)
-	{
-		_putchar('-');
-		_putchar('2');
-		_putchar('1');
-		_putchar('4');
-		_putchar('7');
-		_putchar('4');
-		_putchar('8');
-		_putchar('3');
-		_putchar('6');
-		_putchar('4');
-		_putchar('8');
-		return 11;
-	}
-	else
-		num_print_helper(n, &bytes);
-
-	return bytes;
+	return (bytes);
 }
