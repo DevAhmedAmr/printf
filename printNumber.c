@@ -15,16 +15,21 @@ void num_print_helper(int n, int *bytes)
 
     if (n < 0)
     {
-        *bytes += _putchar('-');
+        *bytes += 1;
+
+	_putchar('-');
+
         n = -n;
     }
 
     divisor = highest_power(n);
+
     while (divisor)
     {
         int x = (int)(n / divisor);
 
-        *bytes += _putchar((x % 10) + '0');
+        *bytes += 1;
+       	_putchar((x % 10) + '0');
         divisor /= 10;
     }
 }
@@ -35,9 +40,11 @@ int print_number(va_list arg)
     int n;
 
     n = va_arg(arg, int);
+
     bytes = 0;
 
-    if (n == 0) {
+    if (n == 0) 
+    {
         _putchar('0');
         return 1;
     }
