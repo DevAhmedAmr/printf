@@ -40,7 +40,7 @@ int string_printer(va_list string)
  *lock for a type specifier charcter and call the crosponding function
  * @specifier:argument for specifier
  * @bytes:number of charcters printrd by  formatSpecifierHandler.
- * @arguments: whic is the argument passed after specifier 
+ * @arguments: whic is the argument passed after specifier
  */
 void formatSpecifierHandler(char specifier, int *bytes, va_list arguments)
 {
