@@ -1,19 +1,15 @@
 #include "main.h"
-  int  highest_power(int num)
+ unsigned long int  highest_power(int num)
 {
-	 int power = 1;
+	unsigned long int power = 1;
 		while (num / (power * 10) > 0)
 				power *= 10;
 	return (power);
 }
-/*
-5000
-num =??  * 10
-5000/ ?? = 0;
-*/
+
 void splitNum(int num,int *byets)
 {
-		 int power = 0 , digit = 0;
+		unsigned long int power = 0 , digit = 0;
 		power = highest_power(num);
 		while (power > 0)
 		{
@@ -65,3 +61,4 @@ if (n <  -9)
 	}
 	return (bytes);
 }
+
