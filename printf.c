@@ -1,19 +1,22 @@
 #include "main.h"
-int _printf(const char *format, ...);
-int string_printer(char *str);
-void formatSpecifierHandler(char c, int *bytes, va_list arguments);
-int _printf(const char *format, ...);
 
-int char_printer(char c)
+int char_printer(va_list c)
 {
-	_putchar(c);
+	int character = va_arg(c, int);
+	_putchar(character);
 	return 1;
 }
 
-
-int string_printer(char *str)
+int string_printer(va_list string)
 {
-	unsigned int strLen = _strlen(str), bytes_counted = 0, j;
+	char *str = va_arg(string, char *);
+
+	unsigned int strLen, bytes_counted = 0, j;
+
+	if (str == NULL)
+		str = "(null)";
+
+	strLen = _strlen(str);
 
 	for (j = 0; j < strLen; j++)
 	{
@@ -23,43 +26,51 @@ int string_printer(char *str)
 	return bytes_counted;
 }
 
-void formatSpecifierHandler(char c, int *bytes, va_list arguments)
+void formatSpecifierHandler(char specifier, int *bytes, va_list arguments)
 {
-	switch (c)
+	int i;
+
+	/*flag to identify if the specifier is found or not */
+	int identified_specifier = 0;
+
+	struct specifier_formater struct_specifiers[] = {
+		{'c', char_printer},
+		{'s', string_printer},
+		{'i', print_number},
+		{'d', print_number}};
+
+	for (i = 0; i < 4; i++)
 	{
-	case 'c':
-		*bytes += char_printer(va_arg(arguments, int));
-		break;
-	case 's':
-		*bytes += string_printer(va_arg(arguments, char *));
-		break;
-	case '%':
+		if (struct_specifiers[i].specifier == specifier)
+		{
+			*bytes += struct_specifiers[i].function(arguments);
+			identified_specifier = 1;
+		}
+	}
+	if (specifier == '%' && identified_specifier == 0)
+	{
 		*bytes += 1;
 		_putchar('%');
-		break;
-	case 'i':
-		bytes += print_number(va_arg(arguments, int));
-		break;
-	case 'd':
-		bytes += print_number(va_arg(arguments, int));
-		break;
-
-	default:
-		/* Handle unexpected specifier*/
+	}
+	else if (identified_specifier == 0)
+	{
 		_putchar('%');
-		_putchar(c);
+		_putchar(specifier);
 		*bytes += 2;
-		break;
 	}
 }
-
 int _printf(const char *format, ...)
 {
-	unsigned int num_args = _strlen(format), i;
+	unsigned int num_args, i;
 	va_list args;
 	int bytes = 0;
 
 	va_start(args, format);
+
+	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+		return -1;
+
+	num_args = _strlen(format);
 
 	for (i = 0; i < num_args; i++)
 	{
@@ -68,14 +79,9 @@ int _printf(const char *format, ...)
 			i++;
 			if (i < num_args) /*prevent accessing memory out of bounds*/
 			{
-				char c = format[i];
+				char specifier = format[i];
 
-				formatSpecifierHandler(c, &bytes, args);
-			}
-			else
-			{
-				_putchar('%'); /*Handle case where format string ends in '%'*/
-				bytes++;
+				formatSpecifierHandler(specifier, &bytes, args);
 			}
 		}
 		else
