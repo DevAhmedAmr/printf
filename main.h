@@ -23,8 +23,8 @@ typedef struct specifier_formater
 
 int char_printer(va_list c);
 int string_printer(va_list string);
-unsigned long int _power(int base, int exponent);
-int number_len(long int n);
+unsigned long int _power(long int base, long int exponent);
+unsigned int number_len(unsigned int n);
 int _putchar(char c);
 unsigned int _strlen(const char *s);
 int print_number(va_list number);

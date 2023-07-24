@@ -39,11 +39,11 @@ int _putchar(char c)
  * Return: the given number length
  */
 
-int number_len(long int n)
+unsigned int number_len(unsigned int n)
 {
-	int len = 0;
+	unsigned int len = 0;
 
-	int divisor = 10;
+	unsigned int divisor = 10;
 
 	while (n)
 	{
@@ -61,11 +61,11 @@ int number_len(long int n)
  *
  *  Return: the power of the given number
  */
-unsigned long int _power(int base, int exponent)
+unsigned long int _power(long int base, long int exponent)
 {
-	unsigned long int result = 1;
+	long int result = 1;
 
-	int i;
+	long int i;
 
 	for (i = 0; i < exponent; i++)
 		result *= base;
