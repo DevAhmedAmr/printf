@@ -37,7 +37,6 @@ int print_binary(va_list arg)
 	unsigned int i = 0, n, buffLn;
 	
 	binBuff = "0";
-	printf("Hello my name is zuzi\n");
 	n = va_arg(arg, unsigned int);
 	do
 	{
