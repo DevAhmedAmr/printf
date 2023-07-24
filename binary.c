@@ -35,8 +35,8 @@ int print_binary(va_list arg)
 {
 	char binBuff[1000];
 	unsigned int i = 0, n, buffLn;
+
 	n = va_arg(arg, unsigned int);
-	printf("binNum [%u]", n);
 	do
 	{
 		if (n % 2 == 0)
@@ -48,7 +48,6 @@ int print_binary(va_list arg)
 	}
 	while(n != 0);
 	binBuff[i] = '\0';
-	printf("binBuff [%s]\n",binBuff);
 	buffLn = Reverse(binBuff);
 
 	return (buffLn);
