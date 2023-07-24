@@ -9,7 +9,7 @@
  * @num: number to be converted
  * @buffer: buffer to save the sub number
  */
-void convertToHexLetter_small_x(int *bytes, unsigned *num, char *buffer)
+void convertToHexLetter_small_x(int *bytes, unsigned int *num, char *buffer)
 {
 	switch (*num % 16)
 	{
@@ -43,7 +43,7 @@ void convertToHexLetter_small_x(int *bytes, unsigned *num, char *buffer)
  *
  * @args: args of type va_list will be converted to unsigned int
  *
- * return the number of bytes of the printed number
+ * Return: the number of bytes of the printed number
  */
 int hex_small(va_list args)
 {
@@ -67,5 +67,5 @@ int hex_small(va_list args)
 	}
 	buffer[bytes] = '\0';
 	Reverse(buffer);
-	return bytes;
+	return (bytes);
 }

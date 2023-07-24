@@ -24,7 +24,7 @@ typedef struct specifier_formater
 
 int char_printer(va_list c);
 int string_printer(va_list string);
-unsigned int _power(long int base, unsigned exponent);
+unsigned int _power(long int base, unsigned int exponent);
 unsigned int number_len(unsigned int n);
 int _putchar(char c);
 unsigned int _strlen(const char *s);
