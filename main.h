@@ -15,11 +15,11 @@
  * @function: the function that will handel and print the input
  */
 
-struct specifier_formater
+typedef struct specifier_formater
 {
 	char specifier;
 	int (*function)(va_list);
-};
+} specifier_formater;
 
 int char_printer(va_list c);
 int string_printer(va_list string);
