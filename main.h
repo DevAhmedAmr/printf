@@ -4,11 +4,23 @@
 #include <stdio.h>
 #include <unistd.h>
 
+/**
+ * struct specifier_formater - struct that determine which function
+ * that will handel the input to be printed
+ *
+ * members:
+ * @specifier: the specifier that will determine which function
+ * that will handel the input
+ *
+ * @function: the function that will handel and print the input
+ */
+
 struct specifier_formater
 {
 	char specifier;
 	int (*function)(va_list);
 };
+
 int char_printer(va_list c);
 int string_printer(va_list string);
 unsigned long int _power(int base, int exponent);

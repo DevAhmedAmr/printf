@@ -1,7 +1,9 @@
 #include"main.h"
 /**
- * string_printer - sub function from _printf that print string
- * @c:argument for string
+ * string_printer - sub function from _printf that print a given string
+ *
+ * @string :string of type va_lisit
+ *
  * Return: (int) number of each charcter of string printed by char_printer
  */
 int string_printer(va_list string)
