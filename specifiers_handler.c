@@ -18,9 +18,11 @@ void formatSpecifierHandler(char specifier, int *bytes, va_list arguments)
 		{'i', print_number},
 		{'d', print_number},
 		{'b', print_binary},
-		{'u', unsigned_printer}};
+		{'u', unsigned_printer},
+		{'x', hex_small},
+		{'X', hex_capital}};
 
-	for (i = 0; i < 6; i++)
+	for (i = 0; i < 8; i++)
 	{
 		if (struct_specifiers[i].specifier == specifier)
 		{

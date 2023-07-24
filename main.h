@@ -3,6 +3,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <limits.h>
 
 /**
  * struct specifier_formater - struct that determine which function
@@ -33,4 +34,7 @@ int _printf(const char *format, ...);
 void formatSpecifierHandler(char specifier, int *bytes, va_list arguments);
 int print_binary(va_list arg);
 int unsigned_printer(va_list arg);
+int Reverse(char *binBuff);
+int hex_capital(va_list args);
+int hex_small(va_list args);
 #endif
