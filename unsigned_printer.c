@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * void unsigned_printer_helper - a helper function for unsigned_printer_helper
+ * unsigned_printer_helper - a helper function for unsigned_printer_helper
  * that prints a given unsigned number and calculated the bytes that as printed
  *
  * @parameters:
@@ -52,3 +52,4 @@ int unsigned_printer(va_list arg)
 
 	return (bytes);
 }
+
