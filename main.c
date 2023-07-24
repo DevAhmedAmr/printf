@@ -41,5 +41,13 @@ int main(void)
 	printf("Len:[%d]\n", len2);
 	_printf("Unknown:[%r]\n");
 	printf("Unknown:[%r]\n");
+	_printf("\n----------------------------------\n");
+	printf("%s %s \n","text1","text2");
+	_printf(" _ %s %s \n","text1","text2");
+	 printf("2mod %%\n");
+        printf("1mod %\n");
+        _printf("_2mod %%\n");
+        _printf("_1mod %\n");
+
 	return (0);
 }
