@@ -1,0 +1,6 @@
+
+========== binary.c ==========
+binary.c:47: WARNING: Statements should start on a tabstop
+total: 0 errors, 1 warnings, 54 lines checked
+Reverse
+print_binary
