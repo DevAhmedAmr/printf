@@ -52,11 +52,3 @@ int print_binary(va_list arg)
 
 	return (buffLn);
 }
-
-int main() {
-	unsigned int n= 43 ;
-	print_binary(n);
-	// printf("\n binLen %i", print_binary(n));
-
-	return (0);
-}
