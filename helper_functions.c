@@ -7,9 +7,9 @@
  *
  * Return: length of a string
  */
-unsigned int _strlen(const char *s)
+unsigned long int _strlen(const char *s)
 {
-	unsigned int len = 0;
+	unsigned long int len = 0;
 
 	while (s[len] != '\0')
 		len++;
