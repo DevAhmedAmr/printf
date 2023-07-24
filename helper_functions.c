@@ -71,4 +71,5 @@ unsigned long int _power(long int base, long int exponent)
 		result *= base;
 
 	return (result);
+	/**/
 }
