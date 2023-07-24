@@ -4,6 +4,7 @@
  * @string :string of type va_lisit
  * Return: (int) number of each charcter of string printed by char_printer
 */
+
 int string_printer(va_list string)
 {
 	char *str = va_arg(string, char *);
