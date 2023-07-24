@@ -29,7 +29,7 @@ int Reverse(char *binBuff)
 /**
  * * print_binary - print a binary for given number
  * @arg: argument list for number to print its binary
- * @return (int) number of chrcter of buffer of binary
+ * Return: (int) number of chrcter of buffer of binary
  */
 int print_binary(va_list arg)
 {
