@@ -12,10 +12,10 @@ int Reverse(char *binBuff)
 	i = _strlen(binBuff);
 	ln = i;
 	midPoint = ln / 2;
-	for(i = 0; i < midPoint; i++)
+	for (i = 0; i < midPoint; i++)
 	{
 		tmp = binBuff[i];
-		binBuff[i] = binBuff[(ln -1) -i ];
+		binBuff[i] = binBuff[(ln - 1) - i ];
 		binBuff[(ln -1) -i ] = tmp;
 	}
 	i = 0;
@@ -35,8 +35,7 @@ int print_binary(va_list arg)
 {
 	char *binBuff;
 	unsigned int i = 0, n, buffLn;
-	
-	binBuff = "0";
+
 	n = va_arg(arg, unsigned int);
 	do
 	{
@@ -52,4 +51,12 @@ int print_binary(va_list arg)
 	buffLn = Reverse(binBuff);
 
 	return (buffLn);
+}
+
+int main() {
+	unsigned int n= 43 ;
+	print_binary(n);
+	// printf("\n binLen %i", print_binary(n));
+
+	return (0);
 }
