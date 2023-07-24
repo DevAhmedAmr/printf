@@ -16,7 +16,8 @@ void formatSpecifierHandler(char specifier, int *bytes, va_list arguments)
 	{'c', char_printer},
 	{'s', string_printer},
 	{'i', print_number},
-	{'d', print_number}};
+	{'d', print_number},
+	{'b', print_binary}};
 
 	for (i = 0; i < 4; i++)
 	{
