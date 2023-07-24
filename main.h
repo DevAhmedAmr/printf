@@ -15,6 +15,7 @@
  * @function: the function that will handel and print the input
  */
 
+
 typedef struct specifier_formater
 {
 	char specifier;
@@ -33,5 +34,6 @@ int _printf(const char *format, ...);
 void formatSpecifierHandler(char specifier, int *bytes, va_list arguments);
 unsigned int unsigned_printer(va_list unsignedNum);
 int print_binary(va_list arg);
+
 #endif
 
