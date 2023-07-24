@@ -28,6 +28,6 @@ int main(void)
 	printf("Len:[%d]\n", len2);
 	_printf("Unknown:[%r]\n");
 	printf("Unknown:[%r]\n");
-	_printf("_BINARY [%b]", binary);
+	_printf("_BINARY [%b]\n", binary);
 	return (0);
 }
