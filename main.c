@@ -29,5 +29,6 @@ int main(void)
 	printf("Unknown:[%r]\n");
 	printf("Binary o %b\n", m);
 	_printf("%b\n", m);
+
 	return (0);
 }
