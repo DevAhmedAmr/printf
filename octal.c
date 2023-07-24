@@ -1,12 +1,12 @@
 #include "main.h"
 /**
- * function that convert from decimal (base 10) to
+ * octal - function that convert from decimal (base 10) to
  * oct (base 8)
  *
  * parameters:
  * @args: number to be printed but in type va_list
  *
- * return: size of the printed number
+ * Return: size of the printed number
  */
 int octal(va_list args)
 {
