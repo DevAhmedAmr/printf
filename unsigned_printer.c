@@ -8,7 +8,7 @@
  * @bytes: a unsigned integer that the number of printed bytes will be added to
  */
 
-void unsigned_printer_helper(unsigned int n, unsigned int *bytes)
+void unsigned_printer_helper(unsigned int n, int *bytes)
 {
 	unsigned int numLen, divisor;
 
