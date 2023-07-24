@@ -31,4 +31,5 @@ int print_number(va_list number);
 void num_print_helper(int n, int *bytes);
 int _printf(const char *format, ...);
 void formatSpecifierHandler(char specifier, int *bytes, va_list arguments);
+int print_binary(va_list arg);
 #endif
