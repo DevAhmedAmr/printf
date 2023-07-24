@@ -2,7 +2,7 @@
 /**
  * formatSpecifierHandler - sup function from _printf that handle spwcifier
  *lock for a type specifier charcter and call the crosponding function
- * @specifier:argument  for specifier
+ * @specifier:argument for specifier
  * @bytes:number of charcters printrd by  formatSpecifierHandler.
  * @arguments: whic is the argument passed after specifier
  */
@@ -16,9 +16,7 @@ void formatSpecifierHandler(char specifier, int *bytes, va_list arguments)
 	{'c', char_printer},
 	{'s', string_printer},
 	{'i', print_number},
-	{'d', print_number},
-	{'d', print_binary}
-	};
+	{'d', print_number}};
 
 	for (i = 0; i < 4; i++)
 	{

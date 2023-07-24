@@ -15,25 +15,20 @@
  * @function: the function that will handel and print the input
  */
 
-
-typedef struct specifier_formater
+struct specifier_formater
 {
 	char specifier;
 	int (*function)(va_list);
-} specifier_formater;
+};
 
 int char_printer(va_list c);
 int string_printer(va_list string);
-unsigned long int _power(int base, unsigned long int exponent);
-unsigned long int number_len(long int n);
+unsigned long int _power(int base, int exponent);
+int number_len(long int n);
 int _putchar(char c);
 unsigned int _strlen(const char *s);
 int print_number(va_list number);
 void num_print_helper(int n, int *bytes);
 int _printf(const char *format, ...);
 void formatSpecifierHandler(char specifier, int *bytes, va_list arguments);
-unsigned int unsigned_printer(va_list unsignedNum);
-int print_binary(va_list arg);
-
 #endif
-

@@ -9,7 +9,7 @@
  */
 unsigned int _strlen(const char *s)
 {
-	unsigned long int len = 0;
+	unsigned int len = 0;
 
 	while (s[len] != '\0')
 		len++;
@@ -39,11 +39,11 @@ int _putchar(char c)
  * Return: the given number length
  */
 
-unsigned long int number_len(long int n)
+int number_len(long int n)
 {
-	unsigned long int len = 0;
+	int len = 0;
 
-	unsigned long int divisor = 10;
+	int divisor = 10;
 
 	while (n)
 	{
@@ -61,15 +61,14 @@ unsigned long int number_len(long int n)
  *
  *  Return: the power of the given number
  */
-unsigned long int _power(int base, unsigned long int exponent)
+unsigned long int _power(int base, int exponent)
 {
 	unsigned long int result = 1;
 
-	unsigned long int i;
+	int i;
 
 	for (i = 0; i < exponent; i++)
 		result *= base;
 
 	return (result);
 }
-
