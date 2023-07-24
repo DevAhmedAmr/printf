@@ -37,4 +37,5 @@ int unsigned_printer(va_list arg);
 int Reverse(char *binBuff);
 int hex_capital(va_list args);
 int hex_small(va_list args);
+int octal(va_list args);
 #endif
