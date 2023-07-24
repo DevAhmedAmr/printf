@@ -17,14 +17,13 @@ int _printf(const char *format, ...)
 
 	while (format[i] != '\0')
 	{
-		 char specifier;
+		char specifier;
 
 		if (format[i] == '%')
 		{
 			i++;
 			specifier = format[i];
 			formatSpecifierHandler(specifier, &bytes, args);
-			
 		}
 		else
 		{
@@ -36,4 +35,3 @@ int _printf(const char *format, ...)
 	va_end(args);
 	return (bytes);
 }
-
