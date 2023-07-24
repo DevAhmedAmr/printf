@@ -44,8 +44,7 @@ int print_binary(va_list arg)
 			binBuff[i] = '1';
 		n/= 2;
 		i++;
-		}
-		while(n != 0);
+		}while(n != 0);
 	binBuff[i] = '\0';
 	buffLn = Reverse(binBuff);
 
