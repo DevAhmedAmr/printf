@@ -32,5 +32,6 @@ void num_print_helper(int n, int *bytes);
 int _printf(const char *format, ...);
 void formatSpecifierHandler(char specifier, int *bytes, va_list arguments);
 unsigned int unsigned_printer(va_list unsignedNum);
+int print_binary(va_list arg);
 #endif
 
