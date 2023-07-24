@@ -1,5 +1,5 @@
 #include "main.h"
-#include"main.h"
+#include "main.h"
 
 /**
  * num_print_helper - a helper function for print_number
@@ -16,7 +16,7 @@ void num_print_helper(int n, int *bytes)
 	if (n == -2147483648)
 	{
 		*bytes += 11;
-	write(1, "-2147483648", 11);
+		write(1, "-2147483648", 11);
 		return;
 	}
 
@@ -29,7 +29,17 @@ void num_print_helper(int n, int *bytes)
 
 	numLen = number_len(n);
 
-	divisor = _power(10, numLen - 1);
+	if (n > 0)
+	{
+		divisor = _power(10, numLen - 1);
+	}
+	else
+	{
+		_putchar('0');
+		*bytes = 1;
+		return;
+	}
+
 	while (divisor)
 	{
 		int x = (int)(n / divisor);
