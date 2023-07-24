@@ -1,4 +1,4 @@
-#include"main.h"
+#include "main.h"
 /**
  * formatSpecifierHandler - sup function from _printf that handle spwcifier
  *lock for a type specifier charcter and call the crosponding function
@@ -13,13 +13,14 @@ void formatSpecifierHandler(char specifier, int *bytes, va_list arguments)
 	int identified_specifier = 0;
 
 	specifier_formater struct_specifiers[] = {
-	{'c', char_printer},
-	{'s', string_printer},
-	{'i', print_number},
-	{'d', print_number},
-	{'b', print_binary}};
+		{'c', char_printer},
+		{'s', string_printer},
+		{'i', print_number},
+		{'d', print_number},
+		{'b', print_binary},
+		{'u', unsigned_printer}};
 
-	for (i = 0; i < 5; i++)
+	for (i = 0; i < 6; i++)
 	{
 		if (struct_specifiers[i].specifier == specifier)
 		{

@@ -61,15 +61,14 @@ unsigned int number_len(unsigned int n)
  *
  *  Return: the power of the given number
  */
-unsigned long int _power(long int base, long int exponent)
+unsigned int _power(long int base, unsigned exponent)
 {
-	long int result = 1;
+	unsigned int result = 1;
 
-	long int i;
+	unsigned int i;
 
 	for (i = 0; i < exponent; i++)
 		result *= base;
 
 	return (result);
-	/**/
 }
