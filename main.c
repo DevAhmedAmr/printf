@@ -19,21 +19,21 @@ int main(void)
 	int *ptr3;
 	int (*ptr4)(va_list);
 
-	printf("printf: %p ", ptr1);
-	_printf("_printf:- %p \n", ptr1);
+	printf("1--printf: %p\n", ptr1);
+	_printf("2--_printf:- %p \n", ptr1);
 
 	/* Test case 2: The null pointer*/
-	printf("printf: %p ", ptr2);
+	printf("printf: %p \n", ptr2);
 	_printf("_printf: %p \n", ptr2);
 
 	/* Test case 3: A pointer to an array*/
 	ptr3 = arr;
-	printf("printf: %p ", ptr3);
+	printf("printf: %p \n", ptr3);
 	_printf("_printf: %p \n", ptr3);
 
 	/*Test case 4: A pointer to a function*/
 	ptr4 = ptr_printer;
-	printf("printf: %p ", ptr4);
+	printf("printf: %p \n", ptr4);
 	_printf("_printf: %p\n", ptr4);
 
 	/* Test cases for _printf  */
@@ -101,4 +101,5 @@ int main(void)
 	_printf("%S\n", "Best\nSchool");
 	_printf("%S\n", "Best\tnSchool");
 	return (0);
+
 }
