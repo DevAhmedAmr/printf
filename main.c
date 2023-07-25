@@ -12,14 +12,14 @@ int main(void)
 	int len2;
 	unsigned int ui;
 
-	// Test cases for _printf
+	/* Test cases for _printf  */
 	_printf("Lower Bound: %u\n", 0);
 	_printf("Upper Bound: %u\n", 4294967295);
 	_printf("Just Above Lower Bound: %u\n", 1);
 	_printf("Just Below Upper Bound: %u\n", 4294967294);
 	_printf("Midpoint: %u\n", 2147483647);
 
-	// Test cases for standard printf
+	/* Test cases for standard printf */
 	printf("Lower Bound: %u\n", 0);
 	printf("Upper Bound: %u\n", 4294967295);
 	printf("Just Above Lower Bound: %u\n", 1);
