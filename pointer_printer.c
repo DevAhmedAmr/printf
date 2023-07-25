@@ -47,50 +47,44 @@ void convertToHexLetter_ptr(int *bytes, unsigned long int *num, char *buffer)
  *
  * Return: the number of bytes of the printed number
  */
-int ptr_printer(va_list args)
+int ptr_printer(va_list list)
 {
-	unsigned long int num = va_arg(args, unsigned long int);
+	unsigned long int num = va_arg(list, unsigned long int);
 
-	int bytes = 0,
-		i, len = 0;
-
-	char *buffer = malloc(18 * sizeof(char));
-	char *temp = buffer; /* Temporary pointer for manipulation*/
-	char *prefix = "0x";
+	int size = 0, len;
+	char *p_buff = malloc(18 * sizeof(char));
+	char *temp = p_buff;
+	const char *prefix = "0x";
 
 	if (num == 0)
 	{
-		write(1, "(nil)", 5);
-		free(buffer);
-		return (5);
+		size += write(1, "(nil)", 5);
+		free(p_buff);
+		return size;
 	}
 
-	for (i = 0; i < 18; i++)
-		buffer[i] = '0';
-
-	for (i = 0; i < 18; i++)
+	for (int i = 0; i < 18; i++)
 	{
-		convertToHexLetter_ptr(&bytes, &num, temp);
-
+		convertToHexLetter_ptr(&size, &num, temp);
 		num = num / 16;
-
-		bytes++;
+		size++;
 	}
 
-	temp[i] = '\0';
-
+	temp[18] = '\0';
 	Reverse_str(temp);
 
 	while (*temp == '0')
 	{
 		temp++;
 	}
-	len += _strlen(temp);
-	write(1, prefix, 2);
-	write(1, temp, len);
-	free(buffer); /* Free the original pointer*/
+	len = _strlen(temp);
 
-	return (len + 2);
+	size += write(1, prefix, 2);
+
+	size += write(1, temp, len);
+
+	free(p_buff);
+	return size;
 }
 void Reverse_str(char *binBuff)
 {
