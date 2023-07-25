@@ -89,7 +89,7 @@ void Reverse_str(char *str)
 	for (i = 0; i < midPoint; i++)
 	{
 		tmp = str[i];
-		str[i] = binBuff[(ln - 1) - i];
+		str[i] = str[(ln - 1) - i];
 		str[(ln - 1) - i] = tmp;
 	}
 }

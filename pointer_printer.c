@@ -1,6 +1,5 @@
 #include "main.h"
 #include <stdlib.h>
-void Reverse_str(char *binBuff);
 /**
  * convertToHexLetter_ptr - a helper function to' ptr_printer' that converts
  * the number that are bigger than 9 to hex decimal with 'small'
@@ -47,56 +46,42 @@ void convertToHexLetter_ptr(int *bytes, unsigned long int *num, char *buffer)
  *
  * Return: the number of bytes of the printed number
  */
-int ptr_printer(va_list args)
+int ptr_printer(va_list list)
 {
-	unsigned long int num = va_arg(args, unsigned long int);
+	unsigned long int num = va_arg(list, unsigned long int);
 
-	int bytes = 0, i, len = 0;
+	int size = 0, len, i;
+	char *p_buff = malloc(18 * sizeof(char));
+	char *temp = p_buff;
+	const char *prefix = "0x";
 
-	char *buffer = malloc(1024 * sizeof(char)), *temp, *prefix = "0x";
-
-	if (buffer == NULL)
-		return (-1); /* Return error code if malloc fails */
-
-	temp = buffer; /* Temporary pointer for manipulation */
-
-	/* Initialize buffer to '0' */
-	for (i = 0; buffer[i] != '\0'; i++)
-	{
-		if (buffer[i] == '\0')
-			break;
-
-		buffer[i] = '0';
-	}
 	if (num == 0)
 	{
-		write(1, "(nil)", 5);
-		free(buffer);
-		return (5); /* Include the length of "(nil)" */
+		size += write(1, "(nil)", 5);
+		free(p_buff);
+		return size;
 	}
 
-	for (i = 0; (num != 0 && i < 1024 - 1); i++)
-	{ /* Check for buffer overflow and num != 0 */
-		convertToHexLetter_ptr(&bytes, &num, temp);
+	for (i = 0; i < 18; i++)
+	{
+		convertToHexLetter_ptr(&size, &num, temp);
 		num = num / 16;
-		bytes++;
+		size++;
 	}
 
-	temp[i] = '\0'; /* Terminate the string */
-
+	temp[18] = '\0';
 	Reverse_str(temp);
 
-	/* Skip leading zeros */
-	while (*temp == '0' && *(temp + 1) != '\0')
-	{ /* Check for string with all digits '0' */
+	while (*temp == '0')
+	{
 		temp++;
 	}
+	len = _strlen(temp);
 
-	len += _strlen(temp);
-	write(1, prefix, 2);
-	write(1, temp, len);
-	free(buffer); /* Free the original pointer */
+	size += write(1, prefix, 2);
 
-	return (len + 2); /* Include the length of prefix '0x' */
+	size += write(1, temp, len);
+
+	free(p_buff);
+	return size;
 }
-
