@@ -19,8 +19,9 @@ int main(void)
 	int *ptr3;
 	int (*ptr4)(va_list);
 
-	printf("1--printf: %p\n", ptr1);
-	_printf("2--_printf:- %p \n", ptr1);
+	len = printf("1--printf: %p\n", ptr1);
+	len2 = _printf("2--_printf:- %p \n", ptr1);
+	printf("len = %i len2 = %i\n", len, len2);
 
 	/* Test case 2: The null pointer*/
 	printf("printf: %p \n", ptr2);
@@ -101,5 +102,4 @@ int main(void)
 	_printf("%S\n", "Best\nSchool");
 	_printf("%S\n", "Best\tnSchool");
 	return (0);
-
 }
