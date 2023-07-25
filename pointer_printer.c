@@ -78,13 +78,12 @@ int ptr_printer(va_list args)
 	temp[i] = '0';
 
 	Reverse_str(temp);
-	printf("\nnum = %lu\n", num);
 
-	/* while (*temp == '0')*/
-	/* {*/
-	/* 	temp++;*/
-	/* }*/
-	/* write(1, prefix, 2);*/
+	while (*temp == '0')
+	{
+		temp++;
+	}
+	write(1, prefix, 2);
 	write(1, temp, _strlen(temp));
 	free(buffer); /* Free the original pointer*/
 
