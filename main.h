@@ -52,5 +52,5 @@ int octal(va_list args);
 int nonPrintAscii(va_list arg);
 int ptr_printer(va_list args);
 int hex_capitalA(unsigned int num);
-
+void Reverse_str(char *str);
 #endif

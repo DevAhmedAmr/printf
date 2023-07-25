@@ -56,7 +56,7 @@ int ptr_printer(va_list args)
 	char *buffer = malloc(1024 * sizeof(char)), *temp, *prefix = "0x";
 
 	if (buffer == NULL)
-		return -1; /* Return error code if malloc fails */
+		return (-1); /* Return error code if malloc fails */
 
 	temp = buffer; /* Temporary pointer for manipulation */
 
@@ -99,18 +99,4 @@ int ptr_printer(va_list args)
 
 	return (len + 2); /* Include the length of prefix '0x' */
 }
-void Reverse_str(char *binBuff)
-{
-	int midPoint = 0, ln, i;
-	char tmp;
 
-	i = _strlen(binBuff);
-	ln = i;
-	midPoint = ln / 2;
-	for (i = 0; i < midPoint; i++)
-	{
-		tmp = binBuff[i];
-		binBuff[i] = binBuff[(ln - 1) - i];
-		binBuff[(ln - 1) - i] = tmp;
-	}
-}
