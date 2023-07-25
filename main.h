@@ -50,7 +50,7 @@ int hex_capital(va_list args);
 int hex_small(va_list args);
 int octal(va_list args);
 int nonPrintAscii(va_list arg);
-int hex_capitalA(unsigned int num);`
+int hex_capitalA(unsigned int num);
 
 
 #endif
