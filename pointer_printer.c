@@ -51,7 +51,7 @@ int ptr_printer(va_list args)
 {
 	unsigned long int num = va_arg(args, unsigned long int);
 
-	int bytes = 0, i;
+	int bytes = 0, i, len = 0;
 
 	char *buffer = malloc(18 * sizeof(char));
 	char *temp = buffer; /* Temporary pointer for manipulation*/
@@ -83,11 +83,12 @@ int ptr_printer(va_list args)
 	{
 		temp++;
 	}
+	len += _strlen(temp);
 	write(1, prefix, 2);
-	write(1, temp, _strlen(temp));
+	write(1, temp, len);
 	free(buffer); /* Free the original pointer*/
 
-	return (2 + _strlen(temp));
+	return (len);
 }
 
 void Reverse_str(char *binBuff)

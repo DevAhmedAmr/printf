@@ -19,8 +19,8 @@ int main(void)
 	int *ptr3;
 	int (*ptr4)(va_list);
 
-	len = printf("printf:  %p\n", ptr1);
-	len2 = _printf("_printf: %p \n", ptr1);
+	len = printf("%p\n", ptr1);
+	len2 = _printf("%p \n", ptr1);
 	printf("len = %i len2 = %i\n", len, len2);
 
 	/* Test case 2: The null pointer*/
