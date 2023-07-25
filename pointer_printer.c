@@ -51,7 +51,7 @@ int ptr_printer(va_list list)
 {
 	unsigned long int num = va_arg(list, unsigned long int);
 
-	int size = 0, len;
+	int size = 0, len, i;
 	char *p_buff = malloc(18 * sizeof(char));
 	char *temp = p_buff;
 	const char *prefix = "0x";
@@ -63,7 +63,7 @@ int ptr_printer(va_list list)
 		return size;
 	}
 
-	for (int i = 0; i < 18; i++)
+	for (i = 0; i < 18; i++)
 	{
 		convertToHexLetter_ptr(&size, &num, temp);
 		num = num / 16;
