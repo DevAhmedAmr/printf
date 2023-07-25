@@ -42,6 +42,6 @@ int main(void)
 	printf("1mod %\n");
 	_printf("_2mod %%\n");
 	_printf("_1mod %\n");
-
+ 	_printf("%S\n", "Best\nSchool");
 	return (0);
 }
