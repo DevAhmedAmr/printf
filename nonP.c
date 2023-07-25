@@ -16,7 +16,8 @@ upStr = va_arg(arg, char*);
 		if ((upStr[i] > 0 && upStr[i] < 32) || upStr[i] >= 127) {
 			_putchar('\\');
 			_putchar('0');
-			byets += 2;
+			_putchar('x');
+			byets += 3;
 			for (j = 0; j <= 15; j++) {
 				if (upStr[i] == hexCharA[j].N) {
 					_putchar(hexCharA[j].C);
@@ -30,5 +31,5 @@ upStr = va_arg(arg, char*);
 		}
 		fflush(stdout);
 	}
-	return byets;
+	return (byets);
 }
