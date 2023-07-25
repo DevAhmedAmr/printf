@@ -1,10 +1,10 @@
 #include "main.h"
-int nonPrintAscii(char *upStr)
+int nonPrintAscii(va_list arg)
 {
 	int i, j, byets;
-	// char* upStr;
+	char* upStr;
 
-// upStr = va_arg(arg, char*);
+upStr = va_arg(arg, char*);
 	for (i = 0; upStr[i] !='\0'; i++)
 	{
 		if((upStr[i] > 0 && upStr[i] < 32) || upStr[i] >= 127)
