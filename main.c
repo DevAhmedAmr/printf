@@ -20,18 +20,18 @@ int main(void)
 	int (*ptr4)(va_list);
 
 	len = printf("%p\n", ptr1);
-	len2 = _printf("%p \n", ptr1);
+	len2 = _printf("%p\n", ptr1);
 	printf("len = %i len2 = %i\n", len, len2);
 
 	/* Test case 2: The null pointer*/
-	len = printf("printf:  %p \n", ptr2);
-	len2 = _printf("_printf: %p \n", ptr2);
+	len = printf("printf:  %p\n", ptr2);
+	len2 = _printf("_printf: %p\n", ptr2);
 	printf("len = %i len2 = %i\n", len, len2);
 
 	/* Test case 3: A pointer to an array*/
 	ptr3 = arr;
 	len = printf("printf: %p \n", ptr3);
-	len2 = printf("_printf: %p \n", ptr3);
+	len2 = printf("_printf: %p\n", ptr3);
 	printf("len = %i len2 = %i\n", len, len2);
 
 	/*Test case 4: A pointer to a function*/
