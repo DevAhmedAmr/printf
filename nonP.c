@@ -22,13 +22,22 @@ upStr = va_arg(arg, char*);
 				if (upStr[i] == hexCharA[j].N) {
 					_putchar(hexCharA[j].C);
 					byets++;
+					break;
 				}
 			}
-		} else {
+		} else if (upStr[i] >= 32 && upStr[i] < 127) {
 			_putchar(upStr[i]);
 			byets++;
+		} else {
+			_putchar('\\');
+			_putchar('x');
+			_putchar(hexCharA[(upStr[i] >> 4) & 0x0F].C);
+			_putchar(hexCharA[upStr[i] & 0x0F].C);
+			byets += 4;
 		}
 		fflush(stdout);
 	}
+		fflush(stdout);
+
 	return (byets);
 }
