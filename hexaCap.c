@@ -37,7 +37,7 @@ void convertToHexLetter_X_capitall(int *bytes, unsigned int *num, char *buffer)
 	}
 }
 /**
- * hex_capital - function that convert number for base 10 to base 16
+ * hex_capital - convert number for base 10 to base 16
  * with a capital letters
  * arguments:
  *
