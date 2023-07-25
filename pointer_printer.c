@@ -74,11 +74,11 @@ int ptr_printer(va_list args)
 
 		bytes++;
 	}
-	printf("num = %lu\n", num);
 
 	temp[i] = '0';
 
-	/* Reverse_str(temp);*/
+	Reverse_str(temp);
+	printf("\nnum = %lu\n", num);
 
 	/* while (*temp == '0')*/
 	/* {*/
