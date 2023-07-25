@@ -9,6 +9,7 @@
  *
  * Return: the number of bytes of the printed number
  */
+
 int hex_capitalA(unsigned int num)
 {
 
