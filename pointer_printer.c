@@ -75,7 +75,7 @@ int ptr_printer(va_list args)
 	{
 		write(1, "(nil)", 5);
 		free(buffer);
-		return (7); /* Include the length of "(nil)" */
+		return (5); /* Include the length of "(nil)" */
 	}
 
 	for (i = 0; num != 0 && i < 1024 - 1; i++)
