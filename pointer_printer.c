@@ -74,7 +74,7 @@ int ptr_printer(va_list args)
 
 		bytes++;
 	}
-	printf("buffer = %lu\n", buffer);
+	printf("num = %lu\n", num);
 
 	temp[i] = '0';
 
