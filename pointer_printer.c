@@ -64,8 +64,13 @@ int ptr_printer(va_list args)
 	char *prefix = "0x";
 
 	/* Initialize buffer to '0' */
-	memset(buffer, '0', 1024);
+	for (i = 0; i < buffer[i] != '\0'; i++)
+	{
+		if (buffer[i] == '\0')
+			break;
 
+		buffer[i] = '0';
+	}
 	if (num == 0)
 	{
 		write(1, "(nil)", 5);
