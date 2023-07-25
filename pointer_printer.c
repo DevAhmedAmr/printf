@@ -66,7 +66,7 @@ int ptr_printer(va_list args)
 	for (i = 0; i < 18; i++)
 		buffer[i] = '0';
 
-	for (i = 0; i < 8; i++)
+	for (i = 0; i < 18; i++)
 	{
 		convertToHexLetter_ptr(&bytes, &num, temp);
 
