@@ -54,7 +54,7 @@ int ptr_printer(va_list args)
 	int bytes = 0, i;
 
 	char *buffer = malloc(18 * sizeof(char));
-	char *temp = buffer; // Temporary pointer for manipulation
+	char *temp = buffer; /* Temporary pointer for manipulation*/
 	char *prefix = "0x";
 
 	if (num == 0)
@@ -85,7 +85,7 @@ int ptr_printer(va_list args)
 	}
 	write(1, prefix, 2);
 	write(1, temp, _strlen(temp));
-	free(buffer); // Free the original pointer
+	free(buffer); /* Free the original pointer*/
 
 	return (2 + _strlen(temp));
 }
