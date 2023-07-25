@@ -30,7 +30,7 @@ typedef struct specifier_formater
 typedef struct
 {
 	int N;
-	char C;
+	char *C;
 } HexChar;
 
 int char_printer(va_list c);
