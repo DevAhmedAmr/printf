@@ -52,5 +52,4 @@ int octal(va_list args);
 int nonPrintAscii(va_list arg);
 int hex_capitalA(unsigned int num);
 
-
 #endif
