@@ -72,3 +72,24 @@ unsigned int _power(long int base, unsigned int exponent)
 
 	return (result);
 }
+
+/**
+ * Reverse_str - function that reverse a given string
+ *
+ * @str: string to be reversed
+ */
+void Reverse_str(char *str)
+{
+	int midPoint = 0, ln, i;
+	char tmp;
+
+	i = _strlen(str);
+	ln = i;
+	midPoint = ln / 2;
+	for (i = 0; i < midPoint; i++)
+	{
+		tmp = str[i];
+		str[i] = str[(ln - 1) - i];
+		str[(ln - 1) - i] = tmp;
+	}
+}

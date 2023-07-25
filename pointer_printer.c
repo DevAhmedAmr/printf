@@ -1,6 +1,5 @@
 #include "main.h"
 #include <stdlib.h>
-void Reverse_str(char *binBuff);
 /**
  * convertToHexLetter_ptr - a helper function to' ptr_printer' that converts
  * the number that are bigger than 9 to hex decimal with 'small'
@@ -85,19 +84,4 @@ int ptr_printer(va_list list)
 
 	free(p_buff);
 	return size;
-}
-void Reverse_str(char *binBuff)
-{
-	int midPoint = 0, ln, i;
-	char tmp;
-
-	i = _strlen(binBuff);
-	ln = i;
-	midPoint = ln / 2;
-	for (i = 0; i < midPoint; i++)
-	{
-		tmp = binBuff[i];
-		binBuff[i] = binBuff[(ln - 1) - i];
-		binBuff[(ln - 1) - i] = tmp;
-	}
 }
