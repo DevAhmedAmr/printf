@@ -75,7 +75,7 @@ int ptr_printer(va_list args)
 		bytes++;
 	}
 
-	temp[i] = '0';
+	temp[i] = '\0';
 
 	Reverse_str(temp);
 
