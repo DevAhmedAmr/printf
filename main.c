@@ -12,6 +12,35 @@ int main(void)
 	int len2;
 	unsigned int ui;
 
+	// Test cases for _printf
+	_printf("Lower Bound: %u\n", 0);
+	_printf("Upper Bound: %u\n", 4294967295);
+	_printf("Just Above Lower Bound: %u\n", 1);
+	_printf("Just Below Upper Bound: %u\n", 4294967294);
+	_printf("Midpoint: %u\n", 2147483647);
+
+	// Test cases for standard printf
+	printf("Lower Bound: %u\n", 0);
+	printf("Upper Bound: %u\n", 4294967295);
+	printf("Just Above Lower Bound: %u\n", 1);
+	printf("Just Below Upper Bound: %u\n", 4294967294);
+	printf("Midpoint: %u\n", 2147483647);
+
+	_printf("Hexadecimal representation of 0: %x\n", 24);
+	printf("Hexadecimal representation of 0: %x\n", 0);
+	_printf("Hexadecimal representation of 4294967295: %x\n", 4294967295);
+	printf("Hexadecimal representation of 4294967295: %x\n", 4294967295);
+	_printf("Hexadecimal representation of -1: %x\n", -1);
+	printf("Hexadecimal representation of -1: %x\n", -1);
+
+	/* Decimal to Octal conversion*/
+	_printf("Octal representation of 0: %o\n", 0);
+	printf("Octal representation of 0: %o\n", 0);
+	_printf("Octal representation of 4294967295: %o\n", 4294967295);
+	printf("Octal representation of 4294967295: %o\n", 4294967295);
+	_printf("Octal representation of -1: %o\n", -1);
+	printf("Octal representation of -1: %o\n", -1);
+	_printf("%u \n", -1);
 	len = _printf("Let's try to printf a simple sentence.\n");
 	len2 = printf("Let's try to printf a simple sentence.\n");
 	ui = (unsigned int)INT_MAX + 1024;

@@ -22,6 +22,7 @@ void unsigned_printer_helper(unsigned int n, int *bytes)
 	{
 		_putchar('0');
 		*bytes = 1;
+		return;
 	}
 
 	while (divisor)
@@ -52,4 +53,3 @@ int unsigned_printer(va_list arg)
 
 	return (bytes);
 }
-
