@@ -22,7 +22,6 @@ upStr = va_arg(arg, char*);
 				if (upStr[i] == hexCharA[j].N) {
 					_putchar(hexCharA[j].C);
 					byets++;
-					break;
 				}
 			}
 		} else {
