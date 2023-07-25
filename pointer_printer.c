@@ -53,44 +53,50 @@ int ptr_printer(va_list args)
 
 	int bytes = 0, i, len = 0;
 
-	char *buffer = malloc(18 * sizeof(char));
-	char *temp = buffer; /* Temporary pointer for manipulation*/
+	char *buffer = malloc(1024 * sizeof(char));
+
+	if (buffer == NULL)
+	{
+		return -1; /* Return error code if malloc fails */
+	}
+
+	char *temp = buffer; /* Temporary pointer for manipulation */
 	char *prefix = "0x";
+
+	/* Initialize buffer to '0' */
+	memset(buffer, '0', 1024);
 
 	if (num == 0)
 	{
 		write(1, "(nil)", 5);
-		return (5);
+		free(buffer);
+		return (7); /* Include the length of "(nil)" */
 	}
 
-	for (i = 0; i < 18; i++)
-		buffer[i] = '0';
-
-	for (i = 0; i < 18; i++)
-	{
+	for (i = 0; num != 0 && i < 1024 - 1; i++)
+	{ /* Check for buffer overflow and num != 0 */
 		convertToHexLetter_ptr(&bytes, &num, temp);
-
 		num = num / 16;
-
 		bytes++;
 	}
 
-	temp[i] = '\0';
+	temp[i] = '\0'; /* Terminate the string */
 
 	Reverse_str(temp);
 
-	while (*temp == '0')
-	{
+	/* Skip leading zeros */
+	while (*temp == '0' && *(temp + 1) != '\0')
+	{ /* Check for string with all digits '0' */
 		temp++;
 	}
+
 	len += _strlen(temp);
 	write(1, prefix, 2);
 	write(1, temp, len);
-	free(buffer); /* Free the original pointer*/
+	free(buffer); /* Free the original pointer */
 
-	return (len + 2);
+	return (len + 2); /* Include the length of prefix '0x' */
 }
-
 void Reverse_str(char *binBuff)
 {
 	int midPoint = 0, ln, i;
