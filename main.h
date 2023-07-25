@@ -22,6 +22,17 @@ typedef struct specifier_formater
 	int (*function)(va_list);
 } specifier_formater;
 
+/**
+* struct - struct contain all numerical value 0 - 15 corresponding character in hexadecimal
+* @N: int for numerical value
+*@C: char for cj=harcter
+*/
+typedef struct {
+	int N;
+	char C;
+} HexChar;
+
+
 int char_printer(va_list c);
 int string_printer(va_list string);
 unsigned int _power(long int base, unsigned int exponent);
@@ -38,4 +49,6 @@ int Reverse(char *binBuff);
 int hex_capital(va_list args);
 int hex_small(va_list args);
 int octal(va_list args);
+int nonPrintAscii(va_list arg);
+
 #endif
