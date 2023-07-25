@@ -15,8 +15,8 @@ upStr = va_arg(arg, char*);
 	for (i = 0; upStr[i] !='\0'; i++) {
 		if ((upStr[i] > 0 && upStr[i] < 32) || upStr[i] >= 127) {
 			_putchar('\\');
-			_putchar('0');
 			_putchar('x');
+			_putchar('0');
 			byets += 3;
 			for (j = 0; j <= 15; j++) {
 				if (upStr[i] == hexCharA[j].N) {
