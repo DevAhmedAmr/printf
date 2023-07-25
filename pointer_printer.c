@@ -53,15 +53,12 @@ int ptr_printer(va_list args)
 
 	int bytes = 0, i, len = 0;
 
-	char *buffer = malloc(1024 * sizeof(char));
+	char *buffer = malloc(1024 * sizeof(char)), *temp, *prefix = "0x";
 
 	if (buffer == NULL)
-	{
 		return -1; /* Return error code if malloc fails */
-	}
 
-	char *temp = buffer; /* Temporary pointer for manipulation */
-	char *prefix = "0x";
+	temp = buffer; /* Temporary pointer for manipulation */
 
 	/* Initialize buffer to '0' */
 	for (i = 0; i < buffer[i] != '\0'; i++)
@@ -75,7 +72,7 @@ int ptr_printer(va_list args)
 	{
 		write(1, "(nil)", 5);
 		free(buffer);
-		return (7); /* Include the length of "(nil)" */
+		return (5); /* Include the length of "(nil)" */
 	}
 
 	for (i = 0; num != 0 && i < 1024 - 1; i++)
