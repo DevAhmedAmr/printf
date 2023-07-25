@@ -2,7 +2,7 @@
 
 int nonPrintAscii(va_list arg)
 {
-	int i, j, byets;
+	int i, byets;
 	char* upStr;
 
 upStr = va_arg(arg, char*);
