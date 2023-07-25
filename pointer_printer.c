@@ -79,15 +79,10 @@ int ptr_printer(va_list args)
 
 	Reverse_str(temp);
 
-	while (*temp == '0')
-	{
-		temp++;
-	}
-	write(1, prefix, 2);
 	write(1, temp, _strlen(temp));
 	free(buffer); /* Free the original pointer*/
 
-	return (bytes);
+	return (2 + _strlen(temp));
 }
 
 void Reverse_str(char *binBuff)
