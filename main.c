@@ -34,8 +34,8 @@ int main(void)
 
 	/*Test case 4: A pointer to a function*/
 	ptr4 = ptr_printer;
-	printf("printf: %p \n", ptr4);
-	_printf("_printf: %p\n", ptr4);
+	printf("%p\n", ptr4);
+	_printf("%p\n", ptr4);
 
 	/* Test cases for _printf  */
 	_printf("Lower Bound: %u\n", 0);
