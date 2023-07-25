@@ -23,15 +23,15 @@ typedef struct specifier_formater
 } specifier_formater;
 
 /**
-* struct - struct contain all numerical value 0 - 15 corresponding character in hexadecimal
-* @N: int for numerical value
-*@C: char for cj=harcter
-*/
-typedef struct {
+ * struct - struct contain all numerical value 0 - 15 corresponding character in hexadecimal
+ * @N: int for numerical value
+ * @C: char for character
+ */
+typedef struct
+{
 	int N;
 	char C;
 } HexChar;
-
 
 int char_printer(va_list c);
 int string_printer(va_list string);
@@ -50,5 +50,6 @@ int hex_capital(va_list args);
 int hex_small(va_list args);
 int octal(va_list args);
 int nonPrintAscii(va_list arg);
+int ptr_printer(va_list args);
 
 #endif

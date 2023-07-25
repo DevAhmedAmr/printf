@@ -1,6 +1,4 @@
 #include "main.h"
-#include "main.h"
-
 /**
  * num_print_helper - a helper function for print_number
  * that prints a given number and calculated the bytes that as printed

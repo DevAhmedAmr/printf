@@ -11,6 +11,27 @@ int main(void)
 	int len;
 	int len2;
 	unsigned int ui;
+	// Test case 1: A non-null pointer
+	int a = 10;
+	int *ptr1 = &a;
+	printf("printf: %p ", ptr1);
+	_printf("_printf:- %p \n", ptr1);
+
+	// Test case 2: The null pointer
+	int *ptr2 = NULL;
+	printf("printf: %p ", ptr2);
+	_printf("_printf: %p \n", ptr2);
+
+	// Test case 3: A pointer to an array
+	int arr[10];
+	int *ptr3 = arr;
+	printf("printf: %p ", ptr3);
+	_printf("_printf: %p \n", ptr3);
+
+	// Test case 4: A pointer to a function
+	int (*ptr4)(va_list) = ptr_printer;
+	printf("printf: %p ", ptr4);
+	_printf("_printf: %p\n", ptr4);
 
 	// Test cases for _printf
 	_printf("Lower Bound: %u\n", 0);
@@ -71,6 +92,6 @@ int main(void)
 	printf("1mod %\n");
 	_printf("_2mod %%\n");
 	_printf("_1mod %\n");
- 	_printf("%S\n", "Best\nSchool");
+	_printf("%S\n", "Best\nSchool");
 	return (0);
 }

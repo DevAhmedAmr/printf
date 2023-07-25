@@ -3,6 +3,7 @@
 		"main.h": "c",
 		"stdarg.h": "c",
 		"unistd.h": "c",
-		"limits.h": "c"
+		"limits.h": "c",
+		"stdio.h": "c"
 	}
 }
