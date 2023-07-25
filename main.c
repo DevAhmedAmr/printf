@@ -71,6 +71,9 @@ int main(void)
 	printf("1mod %\n");
 	_printf("_2mod %%\n");
 	_printf("_1mod %\n");
- 	_printf("%S\n", "Best\nSchool");
+
+	/*Test none print */
+	  _printf("%S\n", "Best\nSchool");
+	    _printf("%S\n", "Best\tnSchool");
 	return (0);
 }
