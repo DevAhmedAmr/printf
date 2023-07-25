@@ -33,14 +33,14 @@ int main(void)
 	printf("printf: %p ", ptr4);
 	_printf("_printf: %p\n", ptr4);
 
-	// Test cases for _printf
+	/* Test cases for _printf  */
 	_printf("Lower Bound: %u\n", 0);
 	_printf("Upper Bound: %u\n", 4294967295);
 	_printf("Just Above Lower Bound: %u\n", 1);
 	_printf("Just Below Upper Bound: %u\n", 4294967294);
 	_printf("Midpoint: %u\n", 2147483647);
 
-	// Test cases for standard printf
+	/* Test cases for standard printf */
 	printf("Lower Bound: %u\n", 0);
 	printf("Upper Bound: %u\n", 4294967295);
 	printf("Just Above Lower Bound: %u\n", 1);
@@ -93,5 +93,9 @@ int main(void)
 	_printf("_2mod %%\n");
 	_printf("_1mod %\n");
 	_printf("%S\n", "Best\nSchool");
+
+	/*Test none print */
+	_printf("%S\n", "Best\nSchool");
+	_printf("%S\n", "Best\tnSchool");
 	return (0);
 }
