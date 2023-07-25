@@ -49,7 +49,7 @@ int ptr_printer(va_list args)
 {
 	unsigned long int num = va_arg(args, unsigned long int);
 
-	int breakLoop = 0, bytes = 0, i;
+	int bytes = 0, i;
 
 	char buffer[8];
 
@@ -58,7 +58,6 @@ int ptr_printer(va_list args)
 
 	for (i = 0; i < 8; i++)
 	{
-		breakLoop = (num / 16 == 0) ? 1 : 0;
 		convertToHexLetter_ptr(&bytes, &num, buffer);
 
 		num = num / 16;

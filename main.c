@@ -11,54 +11,57 @@ int main(void)
 	int len;
 	int len2;
 	unsigned int ui;
-	// Test case 1: A non-null pointer
+	/* Test case 1: A non-null pointer*/
 	int a = 10;
 	int *ptr1 = &a;
+	int *ptr2 = NULL;
+	int arr[10];
+	int *ptr3;
+	int (*ptr4)(va_list);
+
 	printf("printf: %p ", ptr1);
 	_printf("_printf:- %p \n", ptr1);
 
-	// Test case 2: The null pointer
-	int *ptr2 = NULL;
+	/* Test case 2: The null pointer*/
 	printf("printf: %p ", ptr2);
 	_printf("_printf: %p \n", ptr2);
 
-	// Test case 3: A pointer to an array
-	int arr[10];
-	int *ptr3 = arr;
+	/* Test case 3: A pointer to an array*/
+	ptr3 = arr;
 	printf("printf: %p ", ptr3);
 	_printf("_printf: %p \n", ptr3);
 
-	// Test case 4: A pointer to a function
-	int (*ptr4)(va_list) = ptr_printer;
+	/*Test case 4: A pointer to a function*/
+	ptr4 = ptr_printer;
 	printf("printf: %p ", ptr4);
 	_printf("_printf: %p\n", ptr4);
 
 	/* Test cases for _printf  */
 	_printf("Lower Bound: %u\n", 0);
-	_printf("Upper Bound: %u\n", 4294967295);
+	_printf("Upper Bound: %u\n", 4294967295U);
 	_printf("Just Above Lower Bound: %u\n", 1);
-	_printf("Just Below Upper Bound: %u\n", 4294967294);
+	_printf("Just Below Upper Bound: %u\n", 4294967294U);
 	_printf("Midpoint: %u\n", 2147483647);
 
 	/* Test cases for standard printf */
 	printf("Lower Bound: %u\n", 0);
-	printf("Upper Bound: %u\n", 4294967295);
+	printf("Upper Bound: %u\n", 4294967295U);
 	printf("Just Above Lower Bound: %u\n", 1);
-	printf("Just Below Upper Bound: %u\n", 4294967294);
+	printf("Just Below Upper Bound: %u\n", 4294967294U);
 	printf("Midpoint: %u\n", 2147483647);
 
 	_printf("Hexadecimal representation of 0: %x\n", 24);
 	printf("Hexadecimal representation of 0: %x\n", 0);
-	_printf("Hexadecimal representation of 4294967295: %x\n", 4294967295);
-	printf("Hexadecimal representation of 4294967295: %x\n", 4294967295);
+	_printf("Hexadecimal representation of 4294967295: %x\n", 4294967295U);
+	printf("Hexadecimal representation of 4294967295: %x\n", 4294967295U);
 	_printf("Hexadecimal representation of -1: %x\n", -1);
 	printf("Hexadecimal representation of -1: %x\n", -1);
 
 	/* Decimal to Octal conversion*/
 	_printf("Octal representation of 0: %o\n", 0);
 	printf("Octal representation of 0: %o\n", 0);
-	_printf("Octal representation of 4294967295: %o\n", 4294967295);
-	printf("Octal representation of 4294967295: %o\n", 4294967295);
+	_printf("Octal representation of 4294967295: %o\n", 4294967295U);
+	printf("Octal representation of 4294967295: %o\n", 4294967295U);
 	_printf("Octal representation of -1: %o\n", -1);
 	printf("Octal representation of -1: %o\n", -1);
 	_printf("%u \n", -1);
