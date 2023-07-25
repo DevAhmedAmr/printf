@@ -1,7 +1,11 @@
-int nonPrintAscii(char *upStr)
-{
+#include "main.h"
 
+int nonPrintAscii(va_list arg)
+{
 	int i, j, byets;
+	char* upStr;
+
+upStr = va_arg(arg, char*);
 	if (upStr == NULL)
 		upStr = "(null)";
 	for (i = 0; upStr[i] !='\0'; i++)
