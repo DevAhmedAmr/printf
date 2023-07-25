@@ -61,7 +61,7 @@ int ptr_printer(va_list args)
 	temp = buffer; /* Temporary pointer for manipulation */
 
 	/* Initialize buffer to '0' */
-	for (i = 0; i < buffer[i] != '\0'; i++)
+	for (i = 0; buffer[i] != '\0'; i++)
 	{
 		if (buffer[i] == '\0')
 			break;
@@ -75,7 +75,7 @@ int ptr_printer(va_list args)
 		return (5); /* Include the length of "(nil)" */
 	}
 
-	for (i = 0; num != 0 && i < 1024 - 1; i++)
+	for (i = 0; (num != 0 && i < 1024 - 1); i++)
 	{ /* Check for buffer overflow and num != 0 */
 		convertToHexLetter_ptr(&bytes, &num, temp);
 		num = num / 16;
