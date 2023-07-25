@@ -13,7 +13,7 @@ upStr = va_arg(arg, char*);
 				_putchar('x');
 				_putchar('0');
 				byets+=3;
-				_printf("%X",upStr[i]);
+				hex_capitalA(upStr[i]);
 			}
 		else
 			{
