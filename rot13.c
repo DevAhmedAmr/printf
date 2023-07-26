@@ -18,10 +18,10 @@ int rot13(va_list args)
 				*str = rot13[i];
 				break;
 			}
+			printf("%c\n", str);
 		}
 		str++;
 	}
-	printf("--------------\n");
 
 	len = _strlen(ptr);
 	printf("rot13: %s ,%i\n", len, ptr);
