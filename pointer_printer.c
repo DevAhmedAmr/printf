@@ -49,7 +49,6 @@ void convertToHexLetter_ptr(int *bytes, unsigned long int *num, char *buffer)
 int ptr_printer(va_list list)
 {
 	unsigned long int num = va_arg(list, unsigned long int);
-
 	int size = 0, len, i;
 	char *p_buff = malloc(18 * sizeof(char));
 	char *temp = p_buff;
