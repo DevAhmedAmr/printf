@@ -50,7 +50,7 @@ int rot13(va_list args)
  */
 char *_strcpy(char *dest, char *src)
 {
-	int i = 0;
+	unsigned int i = 0;
 
 	for (; i <= _strlen(src); i++)
 	{
