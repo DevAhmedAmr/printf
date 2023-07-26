@@ -39,8 +39,11 @@ int rot132(va_list args)
 		rot13Str++;
 	}
 	len = _strlen(ptr);
+
 	write_status = write(1, ptr, len);
+
 	free(ptr);
+
 	return (write_status);
 }
 /**
@@ -62,20 +65,23 @@ char *_strcpy(char *dest, char *src)
 	}
 	return (dest);
 }
+
 int rot13(va_list args)
 {
 
 	char *normalLetters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 	char *rot13 = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
-	char *str = va_arg(args, char *);
-	int i, len = _strlen(str);
-	char *strcpy = malloc(sizeof(char) * len + 1), *ptr = strcpy;
 
-	if (strcpy == NULL)
-		return (-1);
+	char *str = va_arg(args, char *);
+
+	int i, len = _strlen(str);
+
+	char *strcpy = malloc(sizeof(char) * len), *ptr = strcpy;
 
 	_strcpy(strcpy, str);
+
+	printf("strcpy = %s\n", strcpy);
 
 	while (*strcpy)
 	{
@@ -93,10 +99,7 @@ int rot13(va_list args)
 		strcpy++;
 	}
 
-	printf("rot13: %s ,%i\n", ptr, len);
-
 	len = _strlen(ptr);
-	write(1, ptr, len);
-	free(ptr);
-	return (0);
+
+	return write(1, ptr, len);
 }
