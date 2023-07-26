@@ -22,6 +22,43 @@ int main(void)
 	int (*ptr4)(va_list);
 	void *p = (void *)0x7fff5100b608;
 
+	len = _printf("%S", "No special character.\n");
+	len2 = printf("No special character.\n");
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("\nLengths differ.%i %i\n", len, len2);
+		fflush(stdout);
+	}
+
+	len = _printf("%S", "\n");
+	putchar('\n');
+
+	len2 = printf("\\x0A");
+	putchar('\n');
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("\nLengths differ.%i %i", len, len2);
+		putchar('\n');
+
+		fflush(stdout);
+	}
+	len = _printf("%S", "\x01\x02\x03\x04\x05\x06\x07");
+	putchar('\n');
+
+	len2 = printf("\\x01\\x02\\x03\\x04\\x05\\x06\\x07");
+	putchar('\n');
+
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("\nLengths differ.%i %i\n", len, len2);
+		putchar('\n');
+
+		fflush(stdout);
+	}
+	printf("-----------------------------------");
 	len = _printf("%p\n", p);
 	len2 = printf("%p\n", p);
 	fflush(stdout);
