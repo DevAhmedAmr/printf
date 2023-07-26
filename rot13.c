@@ -15,7 +15,7 @@ int rot13(va_list args)
 	str = va_arg(args, char *);
 	if (str == NULL)
 	{
-		return -1; // Return some error code
+		return -1;
 	}
 
 	len = _strlen(str);
@@ -24,7 +24,7 @@ int rot13(va_list args)
 	ptr = rot13Str;
 	if (rot13Str == NULL)
 	{
-		return -1; // Return some error code if malloc failed
+		return -1;
 	}
 
 	_strcpy(rot13Str, str);
