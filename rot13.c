@@ -22,6 +22,10 @@ int rot13(va_list args)
 
 	rot13Str = malloc(sizeof(char) * (len + 1));
 	ptr = rot13Str;
+	if (rot13Str == NULL)
+	{
+		return -1;
+	}
 
 	_strcpy(rot13Str, str);
 
