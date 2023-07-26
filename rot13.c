@@ -24,9 +24,9 @@ int rot13(va_list args)
 		}
 		str++;
 	}
-	printf("rot13: %s ,%i\n", len, ptr);
 
 	len = _strlen(ptr);
+	printf("rot13: %s ,%i\n", len, ptr);
 
 	return write(1, ptr, len);
 }
