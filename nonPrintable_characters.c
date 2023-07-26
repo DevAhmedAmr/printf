@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * nonPrintAscii - print string repalceing nonprint
+ * nonPrintable_characters - print string repalceing nonprint
  * chars it with its hexadecimal value
  *
  * @arg: string to print
