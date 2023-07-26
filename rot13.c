@@ -7,7 +7,7 @@ int rot13(va_list args)
 
 	char *rot13 = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 
-	char *str = va_arg(args, char *), *ptr = str;
+	char *str = va_arg(args, char *) ,*ptr = str;
 
 	while (*str)
 	{
@@ -22,7 +22,7 @@ int rot13(va_list args)
 		str++;
 	}
 
-	len = _strlen(str);
+	len = _strlen(ptr);
 
-	return write(1, str, len);
+	return write(1, ptr, len);
 }

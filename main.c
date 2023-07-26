@@ -106,9 +106,9 @@ int main(void)
 	_printf("%S\n", "Best\tnSchool");
 
 	/* print string in revers */
-	printf("String");
-	_printf("%r", "_String");
-	_printf("%R", "_String");
+	printf("String\n");
+	_printf("%r\n", "_String");
+	_printf("%R\n", "_String");
 
 	return (0);
 }
