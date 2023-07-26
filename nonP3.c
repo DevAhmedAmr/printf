@@ -54,7 +54,6 @@ int nonPrintAscii(va_list arg)
 			}
 			else
 			{
-				// printf(">>>num = %i\n", num);
 				char buffer[10];
 				_putchar('\\');
 				_putchar('x');
@@ -68,10 +67,8 @@ int nonPrintAscii(va_list arg)
 			bytes++;
 		}
 	}
-	// printf("bliud in len = %i\n", bytes);
 	return (bytes);
 }
-// intToHexa(int hexa) {}
 
 void convertToHexLetter_X_capital2(unsigned int *num, char *buffer)
 {
