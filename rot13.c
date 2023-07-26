@@ -10,28 +10,28 @@ int rot13(va_list args)
 
 	char *rot13 = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 
-	char *str = va_arg(args, char *), *ptr = str;
+	char *str = va_arg(args, char *);
 
 	int i, len = _strlen(str);
 
-	char *strcpy = malloc(sizeof(char) * len);
+	char *strcpy = malloc(sizeof(char) * len), *ptr = strcpy;
 	_strcpy(strcpy, str);
 	printf("strcpy = %s\n", strcpy);
 
-	while (*str)
+	while (*strcpy)
 	{
 
 		for (i = 0; i < 53; i++)
 		{
 
-			if (*str == normalLetters[i])
+			if (*strcpy == normalLetters[i])
 			{
-				*str = rot13[i];
+				*strcpy = rot13[i];
 
 				break;
 			}
 		}
-		str++;
+		strcpy++;
 	}
 
 	len = _strlen(ptr);
