@@ -54,4 +54,5 @@ int ptr_printer(va_list args);
 int hex_capitalA(unsigned int num);
 void Reverse_str(char *str);
 int prtRevStr(va_list arg);
+int rot13(va_list args);
 #endif

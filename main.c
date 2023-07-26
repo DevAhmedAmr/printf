@@ -108,5 +108,7 @@ int main(void)
 	/* print string in revers */
 	printf("String");
 	_printf("%r", "_String");
+	_printf("%R", "_String");
+
 	return (0);
 }

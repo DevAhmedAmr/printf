@@ -24,9 +24,10 @@ void formatSpecifierHandler(char specifier, int *bytes, va_list arguments)
 		{'S', nonPrintAscii},
 		{'o', octal},
 		{'p', ptr_printer},
-		{'r', prtRevStr}};
+		{'r', prtRevStr},
+		{'R', rot13}};
 
-	for (i = 0; i < 12; i++)
+	for (i = 0; i < 13; i++)
 	{
 		if (struct_specifiers[i].specifier == specifier)
 		{
