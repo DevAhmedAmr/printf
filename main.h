@@ -23,9 +23,12 @@ typedef struct specifier_formater
 } specifier_formater;
 
 /**
- * struct - struct contain all numerical value 0 - 15 corresponding character in hexadecimal
+ * struct - struct contain all numerical value 0 - 15 
+ * corresponding character in hexadecimal
+ *
  * @N: int for numerical value
  * @C: char for character
+ *
  */
 typedef struct
 {
