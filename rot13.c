@@ -4,7 +4,13 @@
 char *_strcpy(char *dest, char *src);
 
 /**
- * rot13 - function that
+ * rot13 - function that takes va_list args as an arguments converts
+ * it to a string then encrypts it to rot 13 and print it
+ *
+ * parameters:
+ * @args: argument of type va_list that will be converted into string
+ *
+ * Return: the number of printed characters
  */
 int rot13(va_list args)
 {
