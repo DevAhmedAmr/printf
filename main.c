@@ -104,5 +104,9 @@ int main(void)
 	/*Test none print */
 	_printf("%S\n", "Best\nSchool");
 	_printf("%S\n", "Best\tnSchool");
+
+	/* print string in revers */
+	printf("String");
+	_printf("%r", "_String");
 	return (0);
 }
