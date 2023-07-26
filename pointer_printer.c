@@ -79,13 +79,13 @@ int ptr_printer(va_list list)
 
 	size = 0;
 
-	printf(" size before  : %i len : %i\n ", size, len);
+	// printf(" size before  : %i len : %i\n ", size, len);
 
 	size += write(1, prefix, 2);
 
 	size += write(1, temp, len);
 
-	printf(" size after  : %i len : %i\n ", size, len);
+	// printf(" size after  : %i len : %i\n ", size, len);
 
 	free(p_buff);
 	return (size);
