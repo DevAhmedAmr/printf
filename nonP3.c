@@ -1,4 +1,5 @@
 #include "main.h"
+void convertToHexLetter_X_capital2(unsigned int *num, char *buffer);
 
 /**
  * nonPrintAscii - print string repalceing nonprint
@@ -37,18 +38,28 @@ int nonPrintAscii(va_list arg)
 	{
 		if ((upStr[i] > 0 && upStr[i] < 32) || upStr[i] >= 127)
 		{
-			_putchar('\\');
-			_putchar('x');
-			_putchar('0');
-			 bytes += 3;
-			for (j = 0; j <= 15; j++)
+			int num = (int)upStr[i];
+
+			if (num < 16)
 			{
-				if (upStr[i] == hexCharA[j].N)
-				{
-					_putchar(hexCharA[j].C);
-					bytes++;
-					break;
-				}
+				char buffer[10];
+
+				_putchar('\\');
+				_putchar('x');
+				_putchar('0');
+				convertToHexLetter_X_capital2(&num, buffer);
+				_printf("%s", buffer);
+
+				bytes += 4;
+			}
+			else
+			{
+				// printf(">>>num = %i\n", num);
+				char buffer[10];
+				_putchar('\\');
+				_putchar('x');
+				convertToHexLetter_X_capital2(&num, buffer);
+				bytes += _printf("%s", buffer) + 2;
 			}
 		}
 		else
@@ -59,4 +70,46 @@ int nonPrintAscii(va_list arg)
 	}
 	// printf("bliud in len = %i\n", bytes);
 	return (bytes);
+}
+// intToHexa(int hexa) {}
+
+void convertToHexLetter_X_capital2(unsigned int *num, char *buffer)
+{
+	int len = (*num > 16) ? number_len(*num) : 1, i = 0;
+	while (1)
+	{
+
+		switch (*num % 16)
+		{
+		case 10:
+			buffer[i] = 'A';
+			break;
+		case 11:
+			buffer[i] = 'B';
+			break;
+		case 12:
+			buffer[i] = 'C';
+			break;
+		case 13:
+			buffer[i] = 'D';
+			break;
+		case 14:
+			buffer[i] = 'E';
+			break;
+		case 15:
+			buffer[i] = 'F';
+			break;
+		default:
+			buffer[i] = *num % 16 + '0';
+			break;
+		}
+		*num /= 16;
+		i++;
+		if (*num % 16 == 0)
+		{
+			break;
+		}
+	}
+	buffer[i] = '\0';
+	Reverse_str(buffer);
 }

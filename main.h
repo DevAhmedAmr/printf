@@ -58,4 +58,5 @@ int hex_capitalA(unsigned int num);
 void Reverse_str(char *str);
 int prtRevStr(va_list arg);
 int rot13(va_list args);
+void convertToHexLetter_X_capital(int *bytes, unsigned int *num, char *buffer);
 #endif
