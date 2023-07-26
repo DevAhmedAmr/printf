@@ -10,19 +10,18 @@
 
 int prtRevStr(va_list args)
 {
-	int byets = 0, i = 0, len = 0;
-	char *S;
+	int bytes = 0, i = 0, len = 0;
+	char *str = va_arg(args, char *);
 
-S = va_arg(args, char *);
-	if (S == NULL)
+	if (str == NULL)
 		return (0);
-	len = _strlen(S);
+
+	len = _strlen(str);
 
 	for (i = len - 1; i >= 0; i--)
 	{
-		_putchar(S[i]);
-		byets++;
+		_putchar(str[i]);
+		bytes++;
 	}
-	return (byets);
-
+	return (bytes);
 }

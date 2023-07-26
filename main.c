@@ -84,7 +84,6 @@ int main(void)
 	{
 		printf("Lengths differ. %i %i\n", len, len2);
 		fflush(stdout);
-		return (1);
 	}
 
 	len = printf("%p\n", ptr1);
@@ -158,8 +157,8 @@ int main(void)
 	len2 = printf("Percent:[%%]\n");
 	_printf("Len:[%d]\n", len);
 	printf("Len:[%d]\n", len2);
-	_printf("Unknown:[%r]\n");
-	printf("Unknown:[%r]\n");
+	_printf("Unknown:[%k]\n");
+	printf("Unknown:[%k]\n");
 	_printf("\n----------------------------------\n");
 	printf("%s %s \n", "text1", "text2");
 	_printf(" _ %s %s \n", "text1", "text2");

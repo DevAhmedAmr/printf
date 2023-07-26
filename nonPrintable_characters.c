@@ -7,7 +7,7 @@
  *
  * Return: (int) number of charcter printed
  */
-int nonPrintAscii(va_list arg)
+int nonPrintable_characters(va_list arg)
 {
 	int i, bytes = 0;
 	char *upStr;
@@ -15,6 +15,7 @@ int nonPrintAscii(va_list arg)
 	upStr = va_arg(arg, char *);
 	if (upStr == NULL)
 		upStr = "(null)";
+
 	for (i = 0; upStr[i] != '\0'; i++)
 	{
 		if ((upStr[i] > 0 && upStr[i] < 32) || upStr[i] >= 127)

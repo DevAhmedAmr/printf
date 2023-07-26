@@ -21,7 +21,7 @@ void formatSpecifierHandler(char specifier, int *bytes, va_list arguments)
 		{'u', unsigned_printer},
 		{'x', hex_small},
 		{'X', hex_capital},
-		{'S', nonPrintAscii},
+		{'S', nonPrintable_characters},
 		{'o', octal},
 		{'p', ptr_printer},
 		{'r', prtRevStr},

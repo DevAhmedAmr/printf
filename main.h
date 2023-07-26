@@ -52,7 +52,7 @@ int Reverse(char *binBuff);
 int hex_capital(va_list args);
 int hex_small(va_list args);
 int octal(va_list args);
-int nonPrintAscii(va_list arg);
+int nonPrintable_characters(va_list arg);
 int ptr_printer(va_list args);
 int hex_capitalA(unsigned int num);
 void Reverse_str(char *str);
