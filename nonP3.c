@@ -25,7 +25,6 @@ int nonPrintAscii(va_list arg)
 
 			if (num < 16)
 			{
-				char buffer[10];
 
 				_putchar('\\');
 				_putchar('x');
@@ -36,7 +35,6 @@ int nonPrintAscii(va_list arg)
 			}
 			else
 			{
-				char buffer[10];
 				_putchar('\\');
 				_putchar('x');
 				bytes += _printf("%X", num) + 2;
