@@ -1,6 +1,4 @@
 #include "main.h"
-void convertToHexLetter_X_capital2(int *num, char *buffer);
-
 /**
  * nonPrintAscii - print string repalceing nonprint
  * chars it with its hexadecimal value
@@ -47,45 +45,4 @@ int nonPrintAscii(va_list arg)
 		}
 	}
 	return (bytes);
-}
-
-void convertToHexLetter_X_capital2(int *num, char *buffer)
-{
-	int i = 0;
-	while (1)
-	{
-
-		switch (*num % 16)
-		{
-		case 10:
-			buffer[i] = 'A';
-			break;
-		case 11:
-			buffer[i] = 'B';
-			break;
-		case 12:
-			buffer[i] = 'C';
-			break;
-		case 13:
-			buffer[i] = 'D';
-			break;
-		case 14:
-			buffer[i] = 'E';
-			break;
-		case 15:
-			buffer[i] = 'F';
-			break;
-		default:
-			buffer[i] = *num % 16 + '0';
-			break;
-		}
-		*num /= 16;
-		i++;
-		if (*num % 16 == 0)
-		{
-			break;
-		}
-	}
-	buffer[i] = '\0';
-	Reverse_str(buffer);
 }
