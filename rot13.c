@@ -99,5 +99,5 @@ int rot13(va_list args)
 	write(1, ptr, len);
 	free(strcpy);
 
-	return len;
+	return 0;
 }
