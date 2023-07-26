@@ -25,6 +25,8 @@ int main(void)
 	len = _printf("%s%S%c", "Show me the codes: ", "\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0A\x10", '\n');
 	len2 = printf("%s\\x01\\x02\\x03\\x04\\x05\\x06\\x07\\x08\\x09\\x0A\\x10%c", "Show me the codes: ", '\n');
 	fflush(stdout);
+	printf("Len1 : %i Len2 %i.\n", len, len2);
+
 	if (len != len2)
 	{
 		printf("Lengths differ.\n");
