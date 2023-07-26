@@ -21,15 +21,15 @@ int rot13(va_list args)
 	len = _strlen(str);
 
 	rot13Str = malloc(sizeof(char) * (len + 1));
+
 	ptr = rot13Str;
+
 	if (rot13Str == NULL)
 	{
 		return -1;
 	}
 
 	_strcpy(rot13Str, str);
-
-	printf("rot13Str = %s\n", rot13Str);
 
 	while (*rot13Str)
 	{
@@ -45,7 +45,6 @@ int rot13(va_list args)
 	}
 
 	len = _strlen(ptr);
-	printf("rot13: %s ,%i\n", ptr, len);
 
 	write_status = write(1, ptr, len);
 
