@@ -69,7 +69,7 @@ int rot13(va_list args)
 
 	char *rot13 = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 	char *str = va_arg(args, char *);
-	int i, len = _strlen(str), write_status;
+	int i, len = _strlen(str);
 	char *strcpy = malloc(sizeof(char) * len + 1), *ptr = strcpy;
 
 	if (strcpy == NULL)
@@ -93,7 +93,7 @@ int rot13(va_list args)
 		strcpy++;
 	}
 	len = _strlen(ptr);
-	write_status = write(1, ptr, len);
+	write(1, ptr, len);
 	free(ptr);
-	return (write_status);
+	return (0);
 }
