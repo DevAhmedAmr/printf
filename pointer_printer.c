@@ -42,7 +42,7 @@ void convertToHexLetter_ptr(int *bytes, unsigned long int *num, char *buffer)
  * with a 'small' letters
  * arguments:
  *
- * @args: args of type va_list will be converted to unsigned int
+ * @list: args of type va_list will be converted to unsigned int
  *
  * Return: the number of bytes of the printed number
  */
@@ -59,7 +59,7 @@ int ptr_printer(va_list list)
 	{
 		size += write(1, "(nil)", 5);
 		free(p_buff);
-		return size;
+		return (size);
 	}
 
 	for (i = 0; i < 18; i++)
@@ -83,5 +83,5 @@ int ptr_printer(va_list list)
 	size += write(1, temp, len);
 
 	free(p_buff);
-	return size;
+	return (size);
 }
