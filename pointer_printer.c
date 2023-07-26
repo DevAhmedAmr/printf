@@ -73,10 +73,11 @@ int ptr_printer(va_list list)
 	Reverse_str(temp);
 
 	while (*temp == '0')
-	{
 		temp++;
-	}
+
 	len = _strlen(temp);
+
+	size = 0;
 
 	size += write(1, prefix, 2);
 
