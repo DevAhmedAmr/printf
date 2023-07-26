@@ -16,9 +16,10 @@ int rot13(va_list args)
 			if (*str == normalLetters[i])
 			{
 				*str = rot13[i];
+				printf("%c\n", str);
+
 				break;
 			}
-			printf("%c\n", str);
 		}
 		str++;
 	}
