@@ -12,9 +12,6 @@ int rot13(va_list args)
 
 	str = va_arg(args, char *);
 
-	if (str == NULL)
-		return (-1);
-
 	len = _strlen(str);
 
 	rot13Str = malloc(sizeof(char) * (len + 1));
