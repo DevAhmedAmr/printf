@@ -59,21 +59,18 @@ int ptr_printer(va_list list)
 		free(p_buff);
 		return -1;
 	}
-
 	if (num == 0)
 	{
 		size += write(1, "(nil)", 5);
 		free(p_buff);
 		return (size);
 	}
-
 	for (i = 0; i < 18; i++)
 	{
 		convertToHexLetter_ptr(&size, &num, temp);
 		num = num / 16;
 		size++;
 	}
-
 	temp[18] = '\0';
 	Reverse_str(temp);
 
