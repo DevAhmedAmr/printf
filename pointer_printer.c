@@ -52,6 +52,13 @@ int ptr_printer(va_list list)
 
 	int size = 0, len, i;
 	char *p_buff = malloc(18 * sizeof(char));
+
+	if (p_buff == NULL)
+	{
+		free(p_buff);
+		return -1;
+	}
+
 	char *temp = p_buff;
 	const char *prefix = "0x";
 
