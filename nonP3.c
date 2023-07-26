@@ -1,5 +1,5 @@
 #include "main.h"
-void convertToHexLetter_X_capital2(unsigned int *num, char *buffer);
+void convertToHexLetter_X_capital2(int *num, char *buffer);
 
 /**
  * nonPrintAscii - print string repalceing nonprint
@@ -11,25 +11,8 @@ void convertToHexLetter_X_capital2(unsigned int *num, char *buffer);
  */
 int nonPrintAscii(va_list arg)
 {
-	int i, j, bytes = 0;
+	int i, bytes = 0;
 	char *upStr;
-	HexChar hexCharA[] = {
-		{0, '0'},
-		{1, '1'},
-		{2, '2'},
-		{3, '3'},
-		{4, '4'},
-		{5, '5'},
-		{6, '6'},
-		{7, '7'},
-		{8, '8'},
-		{9, '9'},
-		{10, 'A'},
-		{11, 'B'},
-		{12, 'C'},
-		{13, 'D'},
-		{14, 'E'},
-		{15, 'F'}};
 
 	upStr = va_arg(arg, char *);
 	if (upStr == NULL)
@@ -70,9 +53,9 @@ int nonPrintAscii(va_list arg)
 	return (bytes);
 }
 
-void convertToHexLetter_X_capital2(unsigned int *num, char *buffer)
+void convertToHexLetter_X_capital2(int *num, char *buffer)
 {
-	int len = (*num > 16) ? number_len(*num) : 1, i = 0;
+	int i = 0;
 	while (1)
 	{
 
