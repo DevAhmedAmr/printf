@@ -30,8 +30,7 @@ int nonPrintAscii(va_list arg)
 				_putchar('\\');
 				_putchar('x');
 				_putchar('0');
-				convertToHexLetter_X_capital2(&num, buffer);
-				_printf("%s", buffer);
+				_printf("%X", num);
 
 				bytes += 4;
 			}
@@ -40,8 +39,7 @@ int nonPrintAscii(va_list arg)
 				char buffer[10];
 				_putchar('\\');
 				_putchar('x');
-				convertToHexLetter_X_capital2(&num, buffer);
-				bytes += _printf("%s", buffer) + 2;
+				bytes += _printf("%X", num) + 2;
 			}
 		}
 		else
