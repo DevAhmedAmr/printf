@@ -8,6 +8,7 @@ int rot13(va_list args)
 	char *rot13 = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 
 	char *str = va_arg(args, char *), *ptr = str;
+	printf("--------------\n");
 
 	while (*str)
 	{
