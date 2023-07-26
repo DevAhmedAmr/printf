@@ -93,7 +93,7 @@ int rot13(va_list args)
 		strcpy++;
 	}
 
-	/*printf("rot13: %s ,%i\n", len, ptr);*/
+	printf("rot13: %s ,%i\n", ptr, len);
 
 	len = _strlen(ptr);
 	write(1, ptr, len);
