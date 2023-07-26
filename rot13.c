@@ -7,16 +7,13 @@ int rot13(va_list args)
 {
 	char *normalLetters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	char *rot13Letters = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
-	char *str;
-	int i, len;
-	char *rot13Str, *ptr;
-	int write_status;
+	char *rot13Str, *ptr, *str;
+	int i, len, write_status;
 
 	str = va_arg(args, char *);
+
 	if (str == NULL)
-	{
-		return -1;
-	}
+		return (-1);
 
 	len = _strlen(str);
 
@@ -25,9 +22,7 @@ int rot13(va_list args)
 	ptr = rot13Str;
 
 	if (rot13Str == NULL)
-	{
-		return -1;
-	}
+		return (-1);
 
 	_strcpy(rot13Str, str);
 
@@ -43,14 +38,10 @@ int rot13(va_list args)
 		}
 		rot13Str++;
 	}
-
 	len = _strlen(ptr);
-
 	write_status = write(1, ptr, len);
-
 	free(ptr);
-
-	return write_status;
+	return (write_status);
 }
 /**
  * _strcpy - function that copies a string
