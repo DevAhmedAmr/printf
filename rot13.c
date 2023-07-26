@@ -5,39 +5,53 @@ char *_strcpy(char *dest, char *src);
 
 int rot13(va_list args)
 {
-
 	char *normalLetters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char *rot13Letters = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
+	char *str;
+	int i, len;
+	char *rot13Str, *ptr;
+	int write_status;
 
-	char *rot13 = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
-
-	char *str = va_arg(args, char *);
-
-	int i, len = _strlen(str);
-
-	char *strcpy = malloc(sizeof(char) * len), *ptr = strcpy;
-	_strcpy(strcpy, str);
-	printf("strcpy = %s\n", strcpy);
-
-	while (*strcpy)
+	str = va_arg(args, char *);
+	if (str == NULL)
 	{
+		return -1; // Return some error code
+	}
 
+	len = _strlen(str);
+
+	rot13Str = malloc(sizeof(char) * (len + 1));
+	ptr = rot13Str;
+	if (rot13Str == NULL)
+	{
+		return -1; // Return some error code if malloc failed
+	}
+
+	_strcpy(rot13Str, str);
+
+	printf("rot13Str = %s\n", rot13Str);
+
+	while (*rot13Str)
+	{
 		for (i = 0; i < 53; i++)
 		{
-
-			if (*strcpy == normalLetters[i])
+			if (*rot13Str == normalLetters[i])
 			{
-				*strcpy = rot13[i];
-
+				*rot13Str = rot13Letters[i];
 				break;
 			}
 		}
-		strcpy++;
+		rot13Str++;
 	}
 
 	len = _strlen(ptr);
-	printf("rot13: %s ,%i\n", len, ptr);
+	printf("rot13: %s ,%i\n", ptr, len);
 
-	return write(1, ptr, len);
+	write_status = write(1, ptr, len);
+
+	free(ptr);
+
+	return write_status;
 }
 /**
  * _strcpy - function that copies a string
