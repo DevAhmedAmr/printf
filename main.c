@@ -22,8 +22,26 @@ int main(void)
 	int (*ptr4)(va_list);
 	void *p = (void *)0x7fff5100b608;
 
-	len = _printf("%S", "No special character.\n");
-	len2 = printf("No special character.\n");
+	len = _printf("Could you print some non-prntable characters?\n%S\nThanks!\n", "Sure:\x1F\x7F\n");
+	putchar('\n');
+	len2 = printf("Could you print some non-prntable characters?\nSure:\\x1F\\x7F\\x0A\nThanks!\n");
+	putchar('\n');
+
+	fflush(stdout);
+
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+
+	len = _printf("%S", "No special character.");
+	putchar('\n');
+
+	len2 = printf("No special character.");
+	putchar('\n');
+
 	fflush(stdout);
 	if (len != len2)
 	{

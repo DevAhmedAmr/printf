@@ -13,7 +13,22 @@ int nonPrintAscii(va_list arg)
 	int i, j, bytes = 0;
 	char *upStr;
 	HexChar hexCharA[] = {
-		{0, '0'}, {1, '1'}, {2, '2'}, {3, '3'}, {4, '4'}, {5, '5'}, {6, '6'}, {7, '7'}, {8, '8'}, {9, '9'}, {10, 'A'}, {11, 'B'}, {12, 'C'}, {13, 'D'}, {14, 'E'}, {15, 'F'}};
+		{0, '0'},
+		{1, '1'},
+		{2, '2'},
+		{3, '3'},
+		{4, '4'},
+		{5, '5'},
+		{6, '6'},
+		{7, '7'},
+		{8, '8'},
+		{9, '9'},
+		{10, 'A'},
+		{11, 'B'},
+		{12, 'C'},
+		{13, 'D'},
+		{14, 'E'},
+		{15, 'F'}};
 
 	upStr = va_arg(arg, char *);
 	if (upStr == NULL)
@@ -42,5 +57,6 @@ int nonPrintAscii(va_list arg)
 			bytes++;
 		}
 	}
+	// printf("bliud in len = %i\n", bytes);
 	return (bytes);
 }
