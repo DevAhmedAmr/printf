@@ -21,7 +21,7 @@ int main(void)
 	int *ptr3;
 	int (*ptr4)(va_list);
 	void *p = (void *)0x7fff5100b608;
-	int x = '\x1F';
+	/* int x = '\x1F';*/
 	_printf("%s%S%c", "Show me the codes: ", "\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0A\x10", '\n');
 	len = _printf("Could you print some non-prntable characters?\n%S\nThanks!\n", "Sure:\x1F\x7F\n");
 	putchar('\n');
