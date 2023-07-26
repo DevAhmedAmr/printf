@@ -92,6 +92,9 @@ int rot13(va_list args)
 		}
 		strcpy++;
 	}
+
+	printf("rot13: %s ,%i\n", len, ptr);
+
 	len = _strlen(ptr);
 	write(1, ptr, len);
 	free(ptr);
