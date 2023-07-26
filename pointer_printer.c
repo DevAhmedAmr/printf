@@ -57,7 +57,7 @@ int ptr_printer(va_list list)
 	if (p_buff == NULL)
 	{
 		free(p_buff);
-		return -1;
+		return (-1);
 	}
 	if (num == 0)
 	{
