@@ -8,6 +8,7 @@ int rot13(va_list args)
 	char *rot13 = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 
 	char *str = va_arg(args, char *), *ptr = str;
+	printf("%ss\n", str);
 
 	while (*str)
 	{
@@ -16,16 +17,16 @@ int rot13(va_list args)
 			if (*str == normalLetters[i])
 			{
 				*str = rot13[i];
-				printf("%c\n", str);
+				printf("%c\n", *str);
 
 				break;
 			}
 		}
 		str++;
 	}
+	printf("rot13: %s ,%i\n", len, ptr);
 
 	len = _strlen(ptr);
-	printf("rot13: %s ,%i\n", len, ptr);
 
 	return write(1, ptr, len);
 }
