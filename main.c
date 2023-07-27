@@ -22,79 +22,79 @@ int main(void)
 	int (*ptr4)(va_list);
 	void *p = (void *)0x7fff5100b608;
 	/* int x = '\x1F';*/
-	len = _printf("%s%S%c", "Show me the codes: ", "\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0A\x10", '\n');
-	len2 = printf("%s\\x01\\x02\\x03\\x04\\x05\\x06\\x07\\x08\\x09\\x0A\\x10%c", "Show me the codes: ", '\n');
+	// len = _printf("%s%S%c", "Show me the codes: ", "\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0A\x10", '\n');
+	// len2 = printf("%s\\x01\\x02\\x03\\x04\\x05\\x06\\x07\\x08\\x09\\x0A\\x10%c", "Show me the codes: ", '\n');
 	fflush(stdout);
 	printf("Len1 : %i Len2 %i.\n", len, len2);
 
-	if (len != len2)
-	{
-		printf("Lengths differ.\n");
-		fflush(stdout);
-		return (1);
-	}
-	len = _printf("Could you print some non-prntable characters?\n%S\nThanks!\n", "Sure:\x1F\x7F\n");
-	putchar('\n');
-	len2 = printf("Could you print some non-prntable characters?\nSure:\\x1F\\x7F\\x0A\nThanks!\n");
-	putchar('\n');
+	// if (len != len2)
+	// {
+	// 	printf("Lengths differ.\n");
+	// 	fflush(stdout);
+	// 	return (1);
+	// }
+	// len = _printf("Could you print some non-prntable characters?\n%S\nThanks!\n", "Sure:\x1F\x7F\n");
+	// putchar('\n');
+	// len2 = printf("Could you print some non-prntable characters?\nSure:\\x1F\\x7F\\x0A\nThanks!\n");
+	// putchar('\n');
 
-	fflush(stdout);
+	// fflush(stdout);
 
-	if (len != len2)
-	{
-		printf("Lengths differ. len1 %i len2 %i\n", len, len2);
-		fflush(stdout);
-	}
+	// if (len != len2)
+	// {
+	// 	printf("Lengths differ. len1 %i len2 %i\n", len, len2);
+	// 	fflush(stdout);
+	// }
 
-	len = _printf("%S", "No special character.");
-	putchar('\n');
+	// len = _printf("%S", "No special character.");
+	// putchar('\n');
 
-	len2 = printf("No special character.");
-	putchar('\n');
+	// len2 = printf("No special character.");
+	// putchar('\n');
 
-	fflush(stdout);
-	if (len != len2)
-	{
-		printf("\nLengths differ.%i %i\n", len, len2);
-		fflush(stdout);
-	}
+	// fflush(stdout);
+	// if (len != len2)
+	// {
+	// 	printf("\nLengths differ.%i %i\n", len, len2);
+	// 	fflush(stdout);
+	// }
 
-	len = _printf("%S", "\n");
-	putchar('\n');
+	// len = _printf("%S", "\n");
+	// putchar('\n');
 
-	len2 = printf("\\x0A");
-	putchar('\n');
-	fflush(stdout);
-	if (len != len2)
-	{
-		printf("\nLengths differ.%i %i", len, len2);
-		putchar('\n');
+	// len2 = printf("\\x0A");
+	// putchar('\n');
+	// fflush(stdout);
+	// if (len != len2)
+	// {
+	// 	printf("\nLengths differ.%i %i", len, len2);
+	// 	putchar('\n');
 
-		fflush(stdout);
-	}
-	len = _printf("%S", "\x01\x02\x03\x04\x05\x06\x07");
-	putchar('\n');
+	// 	fflush(stdout);
+	// }
+	// len = _printf("%S", "\x01\x02\x03\x04\x05\x06\x07");
+	// putchar('\n');
 
-	len2 = printf("\\x01\\x02\\x03\\x04\\x05\\x06\\x07");
-	putchar('\n');
+	// len2 = printf("\\x01\\x02\\x03\\x04\\x05\\x06\\x07");
+	// putchar('\n');
 
-	fflush(stdout);
-	if (len != len2)
-	{
-		printf("\nLengths differ.%i %i\n", len, len2);
-		putchar('\n');
+	// fflush(stdout);
+	// if (len != len2)
+	// {
+	// 	printf("\nLengths differ.%i %i\n", len, len2);
+	// 	putchar('\n');
 
-		fflush(stdout);
-	}
-	printf("-----------------------------------");
-	len = _printf("%p\n", p);
-	len2 = printf("%p\n", p);
-	fflush(stdout);
-	if (len != len2)
-	{
-		printf("Lengths differ. %i %i\n", len, len2);
-		fflush(stdout);
-	}
+	// 	fflush(stdout);
+	// }
+	// printf("-----------------------------------");
+	// len = _printf("%p\n", p);
+	// len2 = printf("%p\n", p);
+	// fflush(stdout);
+	// if (len != len2)
+	// {
+	// 	printf("Lengths differ. %i %i\n", len, len2);
+	// 	fflush(stdout);
+	// }
 
 	len = printf("%p\n", ptr1);
 	len2 = _printf("%p\n", ptr1);

@@ -70,12 +70,19 @@ int ptr_printer(va_list list)
 		convertToHexLetter_ptr(&size, &num, temp);
 		num = num / 16;
 		size++;
+		if (num == 0)
+		{
+			i++;
+			break;
+		}
 	}
-	temp[18] = '\0';
+
+	temp[i] = '\0';
 	Reverse_str(temp);
 
-	while (*temp == '0')
-		temp++;
+	/*skipping leading zeros*/
+	/* while (*temp == '0')*/
+	/* 	temp++*/
 
 	len = _strlen(temp);
 
