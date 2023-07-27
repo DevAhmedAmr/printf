@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * hexCharf - return an Hexadecimal value for  int 0 - 15
  *
@@ -34,13 +33,13 @@ char hexCharf ( int ui)
  *
  * Return: (int) number of charcter printed
  */
-
+/*va_list args*/
 int nonPrintable_characters(va_list args)
 {
 	int i, byets = 0;
 	char *upStr;
 
-	/*	if ((upStr[i] >= 0 && upStr[i] <= 32) || upStr[i] >= 127) */
+
 upStr = va_arg(args, char*);
 	if (upStr == NULL)
 		upStr = "(null)";
@@ -70,7 +69,9 @@ upStr = va_arg(args, char*);
 			putchar(upStr[i]);
 			byets++;
 		}
-		/* fflush(stdout); */
 	}
+
 	return (byets);
 }
+
+
