@@ -69,7 +69,6 @@ int ptr_printer(va_list list)
 	{
 		convertToHexLetter_ptr(&size, &num, temp);
 		num = num / 16;
-
 		size++;
 
 		if (num == 0)
