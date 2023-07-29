@@ -185,7 +185,10 @@ int main(void)
 	/* print string in revers */
 	printf("String\n");
 	_printf("%r\n", "_String");
-	_printf("%R\n", "_String");
+	_printf("%R we masele 3la f5adk\n", "_String");
+	printf("\n 7. The big print gives  +d\n");
+	_printf("cust %+d masele 3la f5adk", 1024);
+	printf("\n expected +1024+1024\n");
 
 	return (0);
 }

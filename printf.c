@@ -18,10 +18,19 @@ int _printf(const char *format, ...)
 	while (format[i] != '\0')
 	{
 		char specifier;
+		
+		if (format[i] == '%' && format[i + 1] == '+' && format[i + 2] == 'd')
+                        {
+				i += 3;	
+				specifier = 'q';
+				formatSpecifierHandler(specifier, &bytes, args);
+
+                        }/*Done*/
 
 		if (format[i] == '%')
 		{
 			i++;
+
 			specifier = format[i];
 			formatSpecifierHandler(specifier, &bytes, args);
 		}
