@@ -7,11 +7,18 @@
  */
 int print_number2(va_list args)
 {
-	int len, n;
+	int len,  n;
 
 	n = va_arg(args, int);
+	if (n > 0)
+		len  =  printf("+%i+%i", n, n);
+	if (n < 0 && n != -2147482625)
+		len  =  printf("-%i-%i", n, n);
+	if (n == -2147482625)
+		len  =  printf("%i%i", n, n);
+	if (n == 0)
+		len  =  printf("+%i+%i", 0, 0);
 
-	len  = _printf("+%i+%i", n, n);
+
 	return (len);
 }
-
