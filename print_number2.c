@@ -11,13 +11,13 @@ int print_number2(va_list args)
 
 	n = va_arg(args, int);
 	if (n > 0)
-		len  =  printf("+%i+%i", n, n);
+		len  =  _printf("+%i+%i", n, n);
 	if (n < 0 && n != -2147482625)
-		len  =  printf("-%i-%i", n, n);
+		len  =  _printf("-%i-%i", n, n);
 	if (n == -2147482625)
-		len  =  printf("%i%i", n, n);
+		len  =  _printf("%i%i", n, n);
 	if (n == 0)
-		len  =  printf("+%i+%i", 0, 0);
+		len  =  _printf("+%i+%i", 0, 0);
 
 
 	return (len);
